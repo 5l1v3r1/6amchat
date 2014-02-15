@@ -18,9 +18,6 @@ module.exports = function (app, config) {
   app.use(express.static(config.root + '/.tmp'));
   app.use(express.favicon());
 
-  app.set('views', config.root + '/app/views');
-  app.set('view engine', 'jade');
-
   app.use(express.logger('dev'));
 
   app.configure(function() {

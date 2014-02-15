@@ -14,8 +14,4 @@ module.exports = function(app, config) {
   app.del('/api/queue/:vlineUserId', apiAuth, queue.delUser);
 
   app.param('vlineUserId', api.loadVlineUserId);
-
-  app.get('/', function(req, res) {
-    res.render('chat');
-  });
 };
