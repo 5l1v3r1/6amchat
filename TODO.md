@@ -1,3 +1,23 @@
+* [x] Document most recent devop stuff
+* [x] Make responsive for window size
+
+* [ ] Replace font
+* [ ] Add "landing page" info
+* [ ] Add social media btns
+
+* [ ] Add waiting animation
+* [ ] Add animation/colour to "next step" btns
+
+* [ ] Add Google Analytics & Mixpanel
+* [ ] Config for other browsers
+
+* [ ] a
+* [ ] Setup node process
+
+* [ ] Design logo & add favicon
+
+===
+
 * [x] replace bodyParser w/ just JSON
 * [x] make sure request for route ends successfully
 * [x] API routes to only accept JSON, otherwise to respond w/ 406
