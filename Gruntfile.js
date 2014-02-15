@@ -91,7 +91,7 @@ module.exports = function (grunt) {
     jade: {
       index: {
         files: {
-          '<%= yeoman.app %>/': ['<%= yeoman.app %>/jade/index.jade']
+          '.tmp/': ['<%= yeoman.app %>/jade/index.jade']
         },
         options: {
           basePath: '<%= yeoman.app %>/jade/',
@@ -101,7 +101,7 @@ module.exports = function (grunt) {
       }
     },
     useminPrepare: {
-      html: '<%= yeoman.app %>/index.html',
+      html: '.tmp/index.html',
       options: {
         dest: '<%= yeoman.dist %>'
       }
@@ -232,8 +232,8 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'useminPrepare',
     'concurrent:dist',
+    'useminPrepare',
     'autoprefixer',
     'copy:dist',
     'cdnify',
