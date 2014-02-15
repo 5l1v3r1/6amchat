@@ -1,0 +1,59 @@
+extends index
+
+block chat
+  //- FB JS SDK attaches to #fb-root
+  #fb-root
+
+  //- directive is not elem because css's gotta render on page load
+  #front-door(front-door)
+
+  main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur", onfocus="onfocus")
+
+    #videos.container.large-12.left
+      #btns-and-local-stream.large-24
+        #brand-and-btns.large-11.left
+          #brand-container
+            #brand
+              .brand-side
+                span BONFIRE
+              .brand-side
+                span#social-media-icons
+                  span.icon
+                    a(href="/twitter").social-icon-twitter
+                  span.icon
+                    a(href="/facebook").social-icon-facebook
+                  span.icon
+                    a(href="/mail").normal-icon-mail
+
+          #btns
+            #auth-btn
+                a(ng-show="auth.isLoggingIn") Logging in...
+                a(ng-click="auth.login()", ng-show="!auth.isLoggedIn && !auth.isLoggingIn") Login with Facebook
+                a(ng-click="auth.logout()", ng-show="auth.isLoggedIn") Logout
+
+            #chat-btns-wrapper
+              #chat-btns
+                .btn#first-chat-btn(ng-class='{half: videoChat.isAvailable}')
+                  button( ng-hide="videoChat.isAvailable",
+                        ng-disabled="!auth.isLoggedIn",
+                        ng-click="videoChat.callFirstPartner()" ) Start
+                  button(ng-show="videoChat.isAvailable", ng-click='videoChat.stopChatting()') Stop
+                .btn#second-chat-btn.half
+                  button(ng-click='videoChat.hangUp()', ng-disabled='!videoChat.isChatting') Next
+
+        video-stream(stream="videoChat.streams.local", class="large-13 right")
+
+      video-stream(stream="videoChat.streams.remote")
+
+    #chat.container.large-12.right
+      #msgs(scroll-to-bottom-when-changed="videoChat.msgs")
+        .msg(ng-repeat="msg in videoChat.msgs", ng-class="{new-msger: videoChat.changeInMsger($index)}")
+          .msg-info(ng-if="videoChat.changeInMsger($index)")
+            .msg-username{{ msg.username }}
+            .msg-time{{ msg.time | date:'h:mm a' | lowercase }}
+          .msg-payload{{ msg.payload }}
+
+      form#send-msg-form(ng-submit="videoChat.sendMsg($event)")
+        msg-textarea( ng-model="videoChat.msg",
+                      placeholder="{{videoChat.msgPlaceholder}}",
+                      ng-disabled="!videoChat.isChatting" )
