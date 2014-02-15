@@ -232,8 +232,8 @@ module.exports = function (grunt) {
       },
       prod: {
         options: {
-          remote: 'station@107.170.18.103:/home/station/bonfire.git',
-          branch: 'master'
+          remote: 'git@github.com:mattvleming/bonfire.git',
+          branch: 'prod'
         }
       }
     }
