@@ -9,7 +9,7 @@ module.exports = function (grunt) {
     yeoman: {
       // configurable paths
       app: require('./bower.json').appPath || 'app',
-      dist: 'public',
+      dist: 'dist',
       server: 'server'
     },
     watch: {
@@ -222,7 +222,21 @@ module.exports = function (grunt) {
         script: './server/main.js',
         debug: true
       }
-    }]
+    }],
+    buildcontrol: {
+      options: {
+        dir: 'dist',
+        commit: true,
+        push: true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      },
+      prod: {
+        options: {
+          remote: 'station@107.170.18.103:bonfire.git',
+          branch: 'master'
+        }
+      }
+    }
   });
 
   grunt.registerTask('server', [
@@ -247,6 +261,10 @@ module.exports = function (grunt) {
     'uglify',
     'rev',
     'usemin'
+  ]);
+
+  grunt.registerTask('deploy', [
+    'buildcontrol:prod'
   ]);
 
   grunt.registerTask('default', [
