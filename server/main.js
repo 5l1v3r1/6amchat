@@ -1,8 +1,8 @@
 /*jslint node: true */
 'use strict';
 
-var express = require('express'),
-    require("termcolor").define(); // for console.logging w/ colors
+var express = require('express');
+require("termcolor").define(); // for console.logging w/ colors
 
 var env = process.env.NODE_ENV || 'dev',
     config = require('./config')[env];
