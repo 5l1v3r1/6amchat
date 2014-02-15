@@ -1,15 +1,18 @@
 /*jslint node: true */
 'use strict';
+
 var express = require('express'),
-    routes = require('./routes'),
-    app = express();
+    require("termcolor").define(); // for console.logging w/ colors
 
-app.use(express.bodyParser());
+var env = process.env.NODE_ENV || 'dev',
+    config = require('./config')[env];
 
-app.get('/api/awesomeThings', routes.awesomeThings);
+var app = express();
+require('./express')(app, config);
 
-app.use(function (req, res) {
-    res.json({'ok': false, 'status': '404'});
-});
+require('./routes')(app, config);
 
-module.exports = app;
+// module.exports = app;
+var port = process.env.PORT || 3000;
+app.listen(port);
+console.yellow('Express server listening on port ' + port);
