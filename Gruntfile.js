@@ -9,7 +9,7 @@ module.exports = function (grunt) {
     yeoman: {
       // configurable paths
       app: require('./bower.json').appPath || 'app',
-      dist: 'dist',
+      dist: 'public',
       server: 'server'
     },
     watch: {
@@ -123,6 +123,8 @@ module.exports = function (grunt) {
         }]
       }
     },
+    cssmin: {
+    },
     svgmin: {
       dist: {
         files: [{
@@ -146,12 +148,9 @@ module.exports = function (grunt) {
           removeEmptyAttributes: true,
           removeOptionalTags: true*/
         },
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>',
-          src: '*.html',
-          dest: '<%= yeoman.dist %>'
-        }]
+        files: {
+          '<%= yeoman.dist %>/index.html': '.tmp/index.html'
+        }
       }
     },
     copy: {
@@ -174,6 +173,11 @@ module.exports = function (grunt) {
           src: [
             'generated/*'
           ]
+        }, {
+          expand: true,
+          cwd: '.tmp/styles',
+          src: '{,*/}*.css',
+          dest: '<%= yeoman.dist %>/styles'
         }]
       }
     },
@@ -186,8 +190,7 @@ module.exports = function (grunt) {
         'jade',
         'sass',
         'imagemin',
-        'svgmin',
-        'htmlmin'
+        'svgmin'
       ]
     },
     cdnify: {
@@ -233,11 +236,14 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'concurrent:dist',
+    'htmlmin',
     'useminPrepare',
     'autoprefixer',
+    'concat',
     'copy:dist',
     'cdnify',
     'ngmin',
+    'cssmin',
     'uglify',
     'rev',
     'usemin'
