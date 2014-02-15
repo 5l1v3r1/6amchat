@@ -14,7 +14,8 @@ module.exports = function (app, config) {
   //   level: 9
   // }));
 
-  app.use(express.static(config.root + '/public'));
+  app.use(express.static(config.root + '/app'));
+  app.use(express.static(config.root + '/.tmp'));
   app.use(express.favicon());
 
   app.set('views', config.root + '/app/views');
