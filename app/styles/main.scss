@@ -14,6 +14,8 @@ html, body, main {
   color: $dark-color;
   text-rendering: optimizeLegibility;
   background-color: #fcfcfc;
+  min-width: 1110px;
+  overflow-x: scroll;
 }
 
 #front-door {
