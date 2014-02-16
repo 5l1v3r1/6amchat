@@ -3,10 +3,11 @@
 
 * [x] Replace font
 * [x] Add "landing page" info
-* [ ] Add social media btns
 
+* [ ] Add social media btns
 * [ ] Add waiting animation
 * [ ] Add animation/colour to "next step" btns
+* [ ] style chat
 
 * [ ] Add Google Analytics & Mixpanel
 * [ ] Config for other browsers
@@ -15,7 +16,10 @@
 
 * [ ] Design logo & add favicon
 
-* [ ] Show msg "Hm, your wait seems to be getting long. You can help us get more people on by sharing about us!"
+* [ ] Show msg
+  "Hm, your wait seems to be getting long. You can help us get more people on by sharing about us!"
+  "Hm, your wait seems to be getting long. Try get more people on by sharing about us!"
+  "Hm, your wait seems to be getting long. Try get one of your friends on by sharing about us!"
 
 ===
 

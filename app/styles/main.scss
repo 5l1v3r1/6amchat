@@ -289,18 +289,30 @@ video {
     margin-bottom: 0;
     font-weight: 500;
   }
-  #fb-login {
+  #fb-login-container {
     user-select: none;
     margin-top: 87px;
     background-color: #37569a;
     width: 298px;
+    height: 55px;
+    overflow: hidden;
     color: white;
     padding: 15px;
     padding-top: 8px;
     padding-bottom: 10px;
     cursor: pointer;
+    transition: .3s ease;
+    #fb-login {
+      transition: .3s ease;
+    }
     &:hover {
       background-color: #4868af;
+      #fb-login {
+        transform: translateY(-50%);
+      }
+    }
+    #fb-login-side {
+      height: 55px;
     }
     #fb-login-icon {
       height: 20px;
