@@ -4,10 +4,10 @@
 * [x] Replace font
 * [x] Add "landing page" info
 
-* [ ] Add social media btns
 * [ ] Add waiting animation
-* [ ] Add animation/colour to "next step" btns
 * [ ] style chat
+* [ ] Add animation/colour to "next step" btns
+* [ ] Add social media btns
 
 * [ ] Add Google Analytics & Mixpanel
 * [ ] Config for other browsers
