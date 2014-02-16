@@ -48,7 +48,9 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
         #landing-page(ng-hide="auth.isLoggedIn")
           h1 Chat with a person halfway around the world into the wee hours of the morning.
           h2 Sign in with Facebook, turn on<br>your camera and microphone,<br>and meet new people!
-            #fb-login(ng-click="auth.login()") Sign in with Facebook
+            #fb-login(ng-click="auth.login()")
+              img#fb-login-icon(src="images/fb-icon.png")
+              span Sign in with Facebook
         .msg(ng-repeat="msg in videoChat.msgs", ng-class="{new-msger: videoChat.changeInMsger($index)}")
           .msg-info(ng-if="videoChat.changeInMsger($index)")
             .msg-username{{ msg.username }}

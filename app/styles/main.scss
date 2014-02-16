@@ -292,8 +292,22 @@ video {
     color: white;
     padding: 15px;
     padding-top: 7px;
-    padding-bottom: 10px;
+    padding-bottom: 9px;
     cursor: pointer;
+    &:hover {
+      background-color: #4868af;
+    }
+    #fb-login-icon {
+      height: 19px;
+      margin-right: 20px;
+      margin-left: 3px;
+      margin-bottom: 3px;
+    }
+    span {
+      -webkit-font-smoothing: antialiased;
+      margin-right: 11px;
+      font-size: 21px;
+    }
   }
 }
 
