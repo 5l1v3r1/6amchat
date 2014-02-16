@@ -4,10 +4,6 @@
 //- directive is not elem because css's gotta render on page load
 #front-door(front-door)
 
-#landing-page
-  h1 Chat with a person halfway around the world into the wee hours of the morning.
-  h2 Login with Facebook, turn on your camera and microphone, and meet new people!
-
 main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur", onfocus="onfocus")
 
   #videos.container.large-12.medium-12.small-12.left
@@ -48,6 +44,9 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
 
   #chat.container.large-12.medium-12.small-12.right
     #msgs(scroll-to-bottom-when-changed="videoChat.msgs")
+      #landing-page
+        h1 Chat with a person halfway around the world into the wee hours of the morning.
+        h2 Login with Facebook, turn on your camera and microphone, and meet new people!
       .msg(ng-repeat="msg in videoChat.msgs", ng-class="{new-msger: videoChat.changeInMsger($index)}")
         .msg-info(ng-if="videoChat.changeInMsger($index)")
           .msg-username{{ msg.username }}
