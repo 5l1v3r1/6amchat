@@ -24,9 +24,7 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
 
         #btns
           #auth-btn
-              a(ng-show="auth.isLoggingIn") Logging in...
-              a(ng-disabled="!auth.isLoggedIn && !auth.isLoggingIn", ng-show="!auth.isLoggedIn && !auth.isLoggingIn") Sign in first...
-              a(ng-click="auth.logout()", ng-show="auth.isLoggedIn") Logout
+            button(ng-click="auth.logout()", ng-disabled="!auth.isLoggedIn") Logout
 
           #chat-btns-wrapper
             #chat-btns

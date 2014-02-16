@@ -189,14 +189,18 @@ video {
   background-color: white;
 }
 
-#auth-btn a, #auth-btn span {
-  font-family: "europa";
-  text-align: center;
-  display: inline-block;
+#auth-btn button {
+  height: 100%;
   width: 100%;
+  cursor: pointer;
+  border: none;
+  font-family: "europa";
   font-size: 17px;
   color: $dark-color;
-  align-self: center;
+  &:disabled {
+    color: #aaa;
+    cursor: default;
+  }
 }
 
 #chat-btns .btn {
@@ -279,16 +283,17 @@ video {
     margin-bottom: 26px;
   }
   h2 {
-    margin-top: 34px;
+    margin-top: 32px;
     font-size: 24px;
     line-height: 35px;
     margin-bottom: 0;
     font-weight: 500;
   }
   #fb-login {
-    margin-top: 85px;
+    user-select: none;
+    margin-top: 87px;
     background-color: #37569a;
-    width: intrinsic;
+    width: 298px;
     color: white;
     padding: 15px;
     padding-top: 8px;
