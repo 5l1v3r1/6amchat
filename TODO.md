@@ -4,7 +4,7 @@
 * [x] Replace font
 * [x] Add "landing page" info
 
-* [ ] Add waiting animation
+* [x] Add waiting animation
 * [ ] style chat
 * [ ] Add animation/colour to "next step" btns
 * [ ] Add social media btns

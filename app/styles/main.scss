@@ -425,16 +425,17 @@ video {
 }
 
 .spinner {
-  margin: 160px auto 0;
+  margin: 165px auto 0;
   width: 116px;
   text-align: center;
 }
 
 .spinner > div {
-  width: 14px;
+  width: 15px;
   height: 14px;
   margin: 0 10px;
-  background-color: #aaa;
+  border-radius: 3px;
+  background-color: #fff;
 
   display: inline-block;
   animation: bouncedelay 1.4s infinite ease;
@@ -452,8 +453,10 @@ video {
 
 @keyframes bouncedelay {
   0%, 80%, 100% {
-    transform: scale(0.0);
+    transform: scale(0.2);
+    background-color: #fff;
   } 40% {
     transform: scale(1.0);
+    background-color: #aaa;
   }
 }

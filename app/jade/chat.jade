@@ -39,7 +39,7 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
       video-stream(stream="videoChat.streams.local", class="large-13 medium-13 small-13 right")
 
     video-stream(stream="videoChat.streams.remote", class="relative")
-      .spinner(ng-if="videoChat.isAvailable")
+      .spinner(ng-if="videoChat.isAvailable && !videoChat.isChatting")
         .bounce1
         .bounce2
         .bounce3
