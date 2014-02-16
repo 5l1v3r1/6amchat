@@ -39,19 +39,12 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
       video-stream(stream="videoChat.streams.local", class="large-13 medium-13 small-13 right")
 
     video-stream(stream="videoChat.streams.remote", class="relative")
-      #waiting-animation-wrapper(ng-if="videoChat.isAvailable")
-        #waiting-animation
-          .waiting-animation-block
-          .waiting-animation-block
-          .waiting-animation-block
-          .waiting-animation-block
-          .waiting-animation-block
-          .waiting-animation-block
-          .waiting-animation-block
-          .waiting-animation-block
-          .waiting-animation-block
-          .waiting-animation-block
-          .waiting-animation-block
+      .spinner(ng-if="videoChat.isAvailable")
+        .rect1
+        .rect2
+        .rect3
+        .rect4
+        .rect5
 
   #chat.container.large-12.medium-12.small-12.right
     #chat-border
