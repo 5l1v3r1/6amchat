@@ -44,7 +44,7 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
 
   #chat.container.large-12.medium-12.small-12.right
     #msgs(scroll-to-bottom-when-changed="videoChat.msgs")
-      #landing-page
+      #landing-page(delete-when="auth.isLoggingIn")
         h1 Chat with a person halfway around the world into the wee hours of the morning.
         h2 Login with Facebook, turn on<br>your camera and microphone,<br>and meet new people!
       .msg(ng-repeat="msg in videoChat.msgs", ng-class="{new-msger: videoChat.changeInMsger($index)}")

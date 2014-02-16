@@ -15,4 +15,5 @@ angular.module('bonfireApp.directives', [ 'bonfireApp.directives.videoStream',
                                           'bonfireApp.directives.onload',
                                           'bonfireApp.directives.onbeforeunload',
                                           'bonfireApp.directives.frontDoor',
+                                          'bonfireApp.directives.deleteWhen',
                                           'bonfireApp.directives.msgTextarea' ]);
