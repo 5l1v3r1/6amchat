@@ -15,7 +15,6 @@ html, body, main {
   text-rendering: optimizeLegibility;
   background-color: #fcfcfc;
   min-width: 1110px;
-  overflow-x: scroll;
 }
 
 #front-door {
@@ -44,6 +43,7 @@ html, body, main {
 }
 
 main {
+  overflow-x: scroll;
   padding: 36px 48px;
 }
 
@@ -268,6 +268,33 @@ video {
 
 #chat {
   padding-left: 12px;
+}
+
+#landing-page {
+  position: absolute;
+  left: calc(50% + 12px);
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #222;
+  padding-left: 24px;
+  padding-top: 36px;
+  z-index: 1;
+  h1, h2 {
+    color: white;
+  }
+  h1 {
+    margin-top: 0px;
+    font-size: 41px;
+    line-height: 48px;
+  }
+  h2 {
+    margin-top: 45px;
+    font-size: 25px;
+    line-height: 36px;
+    margin-bottom: 0;
+    font-weight: 500;
+  }
 }
 
 #msgs {

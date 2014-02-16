@@ -1,7 +1,7 @@
 * [x] Document most recent devop stuff
 * [x] Make responsive for window size
 
-* [ ] Replace font
+* [x] Replace font
 * [ ] Add "landing page" info
 * [ ] Add social media btns
 
@@ -11,10 +11,11 @@
 * [ ] Add Google Analytics & Mixpanel
 * [ ] Config for other browsers
 
-* [ ] a
 * [ ] Setup node process
 
 * [ ] Design logo & add favicon
+
+* [ ] Show msg "Hm, your wait seems to be getting long. You can help us get more people on by sharing about us!"
 
 ===
 
@@ -116,6 +117,8 @@ _stop coding by feb 3rd_
   - if calls aren't picked up then you're banned
 
 * [ ] for mobile users, don't give app, instead show landing page describing it, and have field w/ below it "Let us send you an email to remind you to check out this app when you get on your computer. Then we'll have your email address and we'll spam you a million thousand times! #geniusplan Okay so we won't spam you, in fact, we won't even subscribe you to anything (in fact, we don't even have anything to subscribe you to)." Then on form submission redirect to tumblr blog w/ best chats.
+
+* [ ] have "subreddits" -> can create a new room, can join a room, and mods can ban users from a room
 
 # Good To Know:
 
