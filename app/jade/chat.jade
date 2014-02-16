@@ -40,11 +40,9 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
 
     video-stream(stream="videoChat.streams.remote", class="relative")
       .spinner(ng-if="videoChat.isAvailable")
-        .rect1
-        .rect2
-        .rect3
-        .rect4
-        .rect5
+        .bounce1
+        .bounce2
+        .bounce3
 
   #chat.container.large-12.medium-12.small-12.right
     #chat-border
