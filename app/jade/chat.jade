@@ -25,7 +25,7 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
         #btns
           #auth-btn
               a(ng-show="auth.isLoggingIn") Logging in...
-              a(ng-click="auth.login()", ng-show="!auth.isLoggedIn && !auth.isLoggingIn") Login with Facebook
+              a(ng-disabled="!auth.isLoggedIn && !auth.isLoggingIn", ng-show="!auth.isLoggedIn && !auth.isLoggingIn") Sign in first...
               a(ng-click="auth.logout()", ng-show="auth.isLoggedIn") Logout
 
           #chat-btns-wrapper
@@ -43,17 +43,19 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
     video-stream(stream="videoChat.streams.remote")
 
   #chat.container.large-12.medium-12.small-12.right
-    #msgs(scroll-to-bottom-when-changed="videoChat.msgs")
-      #landing-page(delete-when="auth.isLoggingIn")
-        h1 Chat with a person halfway around the world into the wee hours of the morning.
-        h2 Login with Facebook, turn on<br>your camera and microphone,<br>and meet new people!
-      .msg(ng-repeat="msg in videoChat.msgs", ng-class="{new-msger: videoChat.changeInMsger($index)}")
-        .msg-info(ng-if="videoChat.changeInMsger($index)")
-          .msg-username{{ msg.username }}
-          .msg-time{{ msg.time | date:'h:mm a' | lowercase }}
-        .msg-payload{{ msg.payload }}
+    #chat-border
+      #msgs(scroll-to-bottom-when-changed="videoChat.msgs")
+        #landing-page(ng-hide="auth.isLoggedIn")
+          h1 Chat with a person halfway around the world into the wee hours of the morning.
+          h2 Sign in with Facebook, turn on<br>your camera and microphone,<br>and meet new people!
+            #fb-login(ng-click="auth.login()") Sign in with Facebook
+        .msg(ng-repeat="msg in videoChat.msgs", ng-class="{new-msger: videoChat.changeInMsger($index)}")
+          .msg-info(ng-if="videoChat.changeInMsger($index)")
+            .msg-username{{ msg.username }}
+            .msg-time{{ msg.time | date:'h:mm a' | lowercase }}
+          .msg-payload{{ msg.payload }}
 
-    form#send-msg-form(ng-submit="videoChat.sendMsg($event)")
-      msg-textarea( ng-model="videoChat.msg",
-                    placeholder="{{videoChat.msgPlaceholder}}",
-                    ng-disabled="!videoChat.isChatting" )
+      form#send-msg-form(ng-submit="videoChat.sendMsg($event)", ng-show="auth.isLoggedIn")
+        msg-textarea( ng-model="videoChat.msg",
+                      placeholder="{{videoChat.msgPlaceholder}}",
+                      ng-disabled="!videoChat.isChatting" )
