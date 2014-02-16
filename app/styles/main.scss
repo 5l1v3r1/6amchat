@@ -283,7 +283,7 @@ video {
     margin-bottom: 26px;
   }
   h2 {
-    margin-top: 32px;
+    margin-top: 28px;
     font-size: 24px;
     line-height: 35px;
     margin-bottom: 0;
@@ -291,7 +291,7 @@ video {
   }
   #fb-login-container {
     user-select: none;
-    margin-top: 87px;
+    margin-top: 96px;
     background-color: #37569a;
     width: 298px;
     height: 55px;
@@ -359,7 +359,7 @@ video {
 }
 
 #send-msg-form.ng-hide-add, #send-msg-form.ng-hide-remove {
-  transition: 0.8s ease-out;
+  transition: 0.8s ease;
 
   display: block !important;
   top: 0px;
@@ -443,12 +443,16 @@ video {
   animation-fill-mode: both;
 }
 
+.spinner .bounce1 {
+  animation-delay: 1.8s;
+}
+
 .spinner .bounce2 {
-  animation-delay: 0.3s;
+  animation-delay: 2.1s;
 }
 
 .spinner .bounce3 {
-  animation-delay: 0.6s;
+  animation-delay: 2.4s;
 }
 
 @keyframes bouncedelay {

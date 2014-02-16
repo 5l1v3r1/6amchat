@@ -5,9 +5,11 @@
 * [x] Add "landing page" info
 
 * [x] Add waiting animation
-* [ ] style chat
 * [ ] Add animation/colour to "next step" btns
+* [ ] style chat
 * [ ] Add social media btns
+
+* [ ] sometimes cam isn't turned off on logout
 
 * [ ] Add Google Analytics & Mixpanel
 * [ ] Config for other browsers
