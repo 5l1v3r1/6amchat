@@ -12,7 +12,7 @@ angular.module('bonfireApp.services.videoChat', [])
         remote: null
       }
 
-      videoChat.msgPlaceholder = "Quick! Type a joke here and send it by pressing enter before they next you!";
+      // videoChat.msgPlaceholder = "";
       videoChat.msg = "", videoChat.msgs = [], videoChat.countingUnreadMsgs = false;
       var _unreadMsgsCounter = 0;
 
@@ -126,6 +126,7 @@ angular.module('bonfireApp.services.videoChat', [])
       videoChat.logoutClient = vline.logout;
 
       videoChat.callFirstPartner = function() {
+        // this.msgPlaceholder = "Quick! Type a joke here and send it by pressing enter before they next you!";
         vline.client.getLocalStream().
           done(function(e) {
             this.streams.local = e;
@@ -137,7 +138,7 @@ angular.module('bonfireApp.services.videoChat', [])
       videoChat.sendMsg = function(e) {
         e.preventDefault();
 
-        this.msgPlaceholder = "";
+        // this.msgPlaceholder = "";
         var msg = this.msg;
 
         if (msg) {
