@@ -7,7 +7,8 @@ angular.module('bonfireApp.directives.videoStream', []).
       scope: {
         stream: "="
       },
-      template: "<div class='video'></div>",
+      transclude: true,
+      template: "<div class='video' ng-transclude></div>",
       replace: true,
       link: function(scope, elem, attrs) {
 

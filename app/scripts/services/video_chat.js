@@ -6,7 +6,7 @@ angular.module('bonfireApp.services.videoChat', [])
       var _partner = null, _calls = [];
 
       var videoChat = {};
-      videoChat.isChatting = false, videoChat.isAvailable = false;
+      videoChat.isChatting = false, videoChat.isAvailable = false, videoChat.isWaiting = chatQueue.isWaiting;
       videoChat.streams = {
         local: null,
         remote: null
