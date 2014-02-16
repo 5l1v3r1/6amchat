@@ -2,7 +2,7 @@
 * [x] Make responsive for window size
 
 * [x] Replace font
-* [ ] Add "landing page" info
+* [x] Add "landing page" info
 * [ ] Add social media btns
 
 * [ ] Add waiting animation
