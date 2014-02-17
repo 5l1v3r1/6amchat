@@ -6,8 +6,9 @@
 
 * [x] Add waiting animation
 * [x] Add animation/colour to "next step" btns
-* [ ] Add Google Analytics & Mixpanel
 * [ ] style chat
+* [ ] Add Google Analytics & Mixpanel
+* [ ] Change font of #front-page
 
 * [ ] Setup node process
 
@@ -16,7 +17,6 @@
 * [ ] Config for other browsers
 * [ ] Add social media btns
 * [ ] Design logo & add favicon
-* [ ] Change font of #front-page
 
 * [ ] Show msg
   "Hm, your wait seems to be getting long. You can help us get more people on by sharing about us!"

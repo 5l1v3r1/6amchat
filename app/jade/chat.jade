@@ -40,7 +40,7 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
 
   #chat.container.large-12.medium-12.small-12.right
     #chat-border
-      #landing-page(ng-hide="auth.isLoggedIn")
+      #landing-page(ng-if="!auth.isLoggedIn")
         #gradient
         #gradient-shadows
         h1 Chat with a random person from around the world into the wee hours of the morning.
@@ -54,11 +54,10 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
                 img#fb-login-icon(src="images/fb-icon.png")
                 span {{ (auth.isLoggingIn || auth.isLoggedIn) ? "Signing in..." : "Sign in with Facebook" }}
       #msgs(scroll-to-bottom-when-changed="videoChat.msgs")
-        .msg(ng-repeat="msg in videoChat.msgs", ng-class="{new-msger: videoChat.changeInMsger($index)}")
-          .msg-info(ng-if="videoChat.changeInMsger($index)")
-            .msg-username{{ msg.username }}
-            .msg-time{{ msg.time | date:'h:mm a' | lowercase }}
+        .msg(ng-repeat="msg in videoChat.msgs", ng-class="{newmsger: videoChat.changeInMsger($index)}")
+          .msg-username(ng-if="videoChat.changeInMsger($index)"){{ msg.username }}
           .msg-payload{{ msg.payload }}
+          .msg-time(ng-if="videoChat.changeInMsger($index)"){{ msg.time | date:'h:mm a' | lowercase }}
 
       form#send-msg-form(ng-submit="videoChat.sendMsg($event)", ng-show="auth.isLoggedIn")
         msg-textarea( ng-model="videoChat.msg",

@@ -376,15 +376,18 @@ video {
   }
 }
 
-#landing-page.ng-hide-add, #landing-page.ng-hide-remove {
+#landing-page.ng-enter, #landing-page.ng-leave {
   transition: 0.5s linear;
-
-  display: block !important;
-  opacity: 1;
 }
 
-#landing-page.ng-hide {
+#landing-page.ng-enter,
+#landing-page.ng-leave.ng-leave-active {
   opacity: 0;
+}
+
+#landing-page.ng-leave,
+#landing-page.ng-enter.ng-enter-active {
+  opacity: 1;
 }
 
 #chat-border {
@@ -461,9 +464,9 @@ video {
   min-height: 0;
 }
 
-#msgs .msg:first-child {
-  margin-bottom: 10px;
-}
+// #msgs .msg:first-child {
+//   margin-bottom: 10px;
+// }
 
 #msgs .msg:last-child {
   margin-bottom: 15px;
@@ -472,35 +475,47 @@ video {
 .msg {
   font-size: 14px;
   position: relative;
-  &.new-msger {
+  overflow: auto;
+  &.newmsger {
     margin-top: 15px;
+    .msg-payload {
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 }
 
-.msg-info .msg-username, .msg-info .msg-time, .msg .msg-payload {
+.msg-username, .msg-time, .msg .msg-payload {
   user-select: text;
 }
 
-.msg-info {
-  position: absolute;
+.msg-username, .msg-time {
   width: 54px;
-  top: 6px;
   font-size: 12px;
-  text-align: right;
-  padding-left: 13px;
   font-weight: bold;
+  float: left;
+  line-height: 26px;
 }
 
-.msg-info .msg-time {
-  display: none;
+.msg-username {
+  width: 10%;
+}
+
+.msg-time {
+  width: 12%;
+}
+
+.msg-username {
+  text-align: right;
 }
 
 .msg .msg-payload {
-  padding: 4px 20px;
+  padding: 4px 17px;
   line-height: 19px;
-  // to simulate indenting of all lines except first
-  margin-left: 60px;
-  text-indent: -13px;
+  width: 79%;
+  margin-right: 11%;
+  float: left;
+  margin-left: 10%;
 }
 
 .spinner {
