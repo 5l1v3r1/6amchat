@@ -10,8 +10,8 @@ module.exports = {
       name: 'Bonfire — Dev'
     },
     facebook: {
-      clientID: "493236667462235",
-      clientSecret: "0256e393ae14766c3fcbdc337cdd1f07"
+      clientID: "362760827200419",
+      clientSecret: "728fcca6f8cd781b79ad52413d1b07a6"
     },
     vline: {
       serviceId: '1000',
