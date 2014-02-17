@@ -29,9 +29,10 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
           #chat-btns-wrapper
             #chat-btns
               .btn#first-chat-btn(ng-class='{half: videoChat.isAvailable}')
+                .gradient(ng-class="{pulse: auth.isLoggedIn && !videoChat.isAvailable}")
                 button( ng-hide="videoChat.isAvailable",
                       ng-disabled="!auth.isLoggedIn",
-                      ng-click="videoChat.callFirstPartner()"
+                      ng-click="videoChat.callFirstPartner()",
                       ng-class="{pulse: auth.isLoggedIn && !videoChat.isAvailable}" ) Start
                 button(ng-show="videoChat.isAvailable", ng-click='videoChat.stopChatting()') Stop
               .btn#second-chat-btn.half
