@@ -67,10 +67,10 @@ module.exports = function (grunt) {
       dist: {
         files: {
           src: [
-            '<%= yeoman.dist %>/scripts/{,*/}*.js',
-            '<%= yeoman.dist %>/styles/{,*/}*.css',
-            '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-            '<%= yeoman.dist %>/styles/fonts/*'
+            '<%= yeoman.dist %>/public/scripts/{,*/}*.js',
+            '<%= yeoman.dist %>/public/styles/{,*/}*.css',
+            '<%= yeoman.dist %>/public/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+            '<%= yeoman.dist %>/public/styles/fonts/*'
           ]
         }
       }
@@ -103,14 +103,14 @@ module.exports = function (grunt) {
     useminPrepare: {
       html: '.tmp/index.html',
       options: {
-        dest: '<%= yeoman.dist %>'
+        dest: '<%= yeoman.dist %>/public'
       }
     },
     usemin: {
-      html: ['<%= yeoman.dist %>/{,*/}*.html'],
-      css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
+      html: ['<%= yeoman.dist %>/public/{,*/}*.html'],
+      css: ['<%= yeoman.dist %>/public/styles/{,*/}*.css'],
       options: {
-        dirs: ['<%= yeoman.dist %>']
+        dirs: ['<%= yeoman.dist %>/public']
       }
     },
     imagemin: {
@@ -119,7 +119,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '<%= yeoman.app %>/images',
           src: '{,*/}*.{png,jpg,jpeg}',
-          dest: '<%= yeoman.dist %>/images'
+          dest: '<%= yeoman.dist %>/public/images'
         }]
       }
     },
@@ -131,7 +131,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '<%= yeoman.app %>/images',
           src: '{,*/}*.svg',
-          dest: '<%= yeoman.dist %>/images'
+          dest: '<%= yeoman.dist %>/public/images'
         }]
       }
     },
@@ -149,7 +149,7 @@ module.exports = function (grunt) {
           removeOptionalTags: true*/
         },
         files: {
-          '<%= yeoman.dist %>/index.html': '.tmp/index.html'
+          '<%= yeoman.dist %>/public/index.html': '.tmp/index.html'
         }
       }
     },
@@ -159,7 +159,7 @@ module.exports = function (grunt) {
           expand: true,
           dot: true,
           cwd: '<%= yeoman.app %>',
-          dest: '<%= yeoman.dist %>',
+          dest: '<%= yeoman.dist %>/public',
           src: [
             '*.{ico,png,txt}',
             'bower_components/**/*',
@@ -169,7 +169,7 @@ module.exports = function (grunt) {
         }, {
           expand: true,
           cwd: '.tmp/images',
-          dest: '<%= yeoman.dist %>/images',
+          dest: '<%= yeoman.dist %>/public/images',
           src: [
             'generated/*'
           ]
@@ -177,7 +177,12 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '.tmp/styles',
           src: '{,*/}*.css',
-          dest: '<%= yeoman.dist %>/styles'
+          dest: '<%= yeoman.dist %>/public/styles'
+        }, {
+          expand: true,
+          cwd: '<%= yeoman.server %>',
+          src: '{,*/}*.js',
+          dest: '<%= yeoman.dist %>/server'
         }]
       }
     },
@@ -195,24 +200,24 @@ module.exports = function (grunt) {
     },
     cdnify: {
       dist: {
-        html: ['<%= yeoman.dist %>/*.html']
+        html: ['<%= yeoman.dist %>/public/*.html']
       }
     },
     ngmin: {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= yeoman.dist %>/scripts',
+          cwd: '<%= yeoman.dist %>/public/scripts',
           src: '*.js',
-          dest: '<%= yeoman.dist %>/scripts'
+          dest: '<%= yeoman.dist %>/public/scripts'
         }]
       }
     },
     uglify: {
       dist: {
         files: {
-          '<%= yeoman.dist %>/scripts/scripts.js': [
-            '<%= yeoman.dist %>/scripts/scripts.js'
+          '<%= yeoman.dist %>/public/scripts/scripts.js': [
+            '<%= yeoman.dist %>/public/scripts/scripts.js'
           ]
         }
       }
