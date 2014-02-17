@@ -5,7 +5,7 @@
 * [x] Add "landing page" info
 
 * [x] Add waiting animation
-* [ ] Add animation/colour to "next step" btns
+* [x] Add animation/colour to "next step" btns
 * [ ] Add Google Analytics & Mixpanel
 * [ ] style chat
 
