@@ -6,17 +6,17 @@
 
 * [x] Add waiting animation
 * [ ] Add animation/colour to "next step" btns
-* [ ] style chat
-* [ ] Add social media btns
-
-* [ ] sometimes cam isn't turned off on logout
-
 * [ ] Add Google Analytics & Mixpanel
-* [ ] Config for other browsers
+* [ ] style chat
 
 * [ ] Setup node process
 
+* [ ] sometimes cam isn't turned off on logout
+
+* [ ] Config for other browsers
+* [ ] Add social media btns
 * [ ] Design logo & add favicon
+* [ ] Change font of #front-page
 
 * [ ] Show msg
   "Hm, your wait seems to be getting long. You can help us get more people on by sharing about us!"

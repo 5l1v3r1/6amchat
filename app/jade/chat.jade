@@ -12,7 +12,7 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
         #brand-container
           #brand
             .brand-side
-              span BONFIRE
+              span SUNRISE CHAT
             .brand-side
               span#social-media-icons
                 span.icon
@@ -24,14 +24,15 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
 
         #btns
           #auth-btn
-            button(ng-click="auth.logout()", ng-disabled="!auth.isLoggedIn") Logout
+            button(ng-click="auth.logout()", ng-disabled="!auth.isLoggedIn") Sign Out
 
           #chat-btns-wrapper
             #chat-btns
               .btn#first-chat-btn(ng-class='{half: videoChat.isAvailable}')
                 button( ng-hide="videoChat.isAvailable",
                       ng-disabled="!auth.isLoggedIn",
-                      ng-click="videoChat.callFirstPartner()" ) Start
+                      ng-click="videoChat.callFirstPartner()"
+                      ng-class="{pulse: auth.isLoggedIn && !videoChat.isAvailable}" ) Start
                 button(ng-show="videoChat.isAvailable", ng-click='videoChat.stopChatting()') Stop
               .btn#second-chat-btn.half
                 button(ng-click='videoChat.hangUp()', ng-disabled='!videoChat.isChatting') Next
@@ -46,18 +47,20 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
 
   #chat.container.large-12.medium-12.small-12.right
     #chat-border
+      #landing-page(ng-hide="auth.isLoggedIn")
+        #gradient
+        #gradient-shadows
+        h1 Chat with a random person halfway around the world into the wee hours of the morning.
+        h2 Sign in with Facebook, turn on<br>your webcam and microphone,<br>and meet new people!
+          #fb-login-container(ng-click="auth.login()")
+            #fb-login
+              #fb-login-side
+                img#fb-login-icon(src="images/fb-icon.png")
+                span {{ (auth.isLoggingIn || auth.isLoggedIn) ? "Signing in..." : "Sign in with Facebook" }}
+              #fb-login-side
+                img#fb-login-icon(src="images/fb-icon.png")
+                span {{ (auth.isLoggingIn || auth.isLoggedIn) ? "Signing in..." : "Sign in with Facebook" }}
       #msgs(scroll-to-bottom-when-changed="videoChat.msgs")
-        #landing-page(ng-hide="auth.isLoggedIn")
-          h1 Chat with a random person halfway around the world into the wee hours of the morning.
-          h2 Sign in with Facebook, turn on<br>your webcam and microphone,<br>and meet new people!
-            #fb-login-container(ng-click="auth.login()")
-              #fb-login
-                #fb-login-side
-                  img#fb-login-icon(src="images/fb-icon.png")
-                  span {{ (auth.isLoggingIn || auth.isLoggedIn) ? "Signing In..." : "Sign in with Facebook" }}
-                #fb-login-side
-                  img#fb-login-icon(src="images/fb-icon.png")
-                  span {{ (auth.isLoggingIn || auth.isLoggedIn) ? "Signing In..." : "Sign in with Facebook" }}
         .msg(ng-repeat="msg in videoChat.msgs", ng-class="{new-msger: videoChat.changeInMsger($index)}")
           .msg-info(ng-if="videoChat.changeInMsger($index)")
             .msg-username{{ msg.username }}
