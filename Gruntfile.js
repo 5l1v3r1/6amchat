@@ -277,8 +277,14 @@ module.exports = function (grunt) {
     'buildcontrol:prod'
   ]);
 
+  grunt.registerTask('release', [
+    'build',
+    'deploy'
+  ]);
+
   grunt.registerTask('default', [
     'jshint',
     'build'
   ]);
+
 };
