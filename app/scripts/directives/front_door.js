@@ -12,6 +12,14 @@ angular.module('bonfireApp.directives.frontDoor', []).
         elem.one('animationend', function(e) {
           elem.remove();
         });
+
+        elem.one('webkitAnimationStart', function(e) {
+          elem.css('pointer-events', 'none');
+        });
+
+        elem.one('webkitAnimationEnd', function(e) {
+          elem.remove();
+        });
       }
     }
     });
