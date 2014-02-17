@@ -153,9 +153,9 @@ video {
   }
 }
 
-#brand-container:hover #brand {
-  transform: translateY(-100%);
-}
+// #brand-container:hover #brand {
+//   transform: translateY(-100%);
+// }
 
 #social-media-icons {
   margin: 0 20px;
@@ -520,7 +520,7 @@ video {
 }
 
 .spinner .bounce1 {
-  animation: bouncedelay-blue 1.4s infinite ease;
+  animation: bouncedelay-orange 1.4s infinite ease;
   animation-fill-mode: both;
   animation-delay: 1.8s;
 }
@@ -532,7 +532,7 @@ video {
 }
 
 .spinner .bounce3 {
-  animation: bouncedelay-orange 1.4s infinite ease;
+  animation: bouncedelay-blue 1.4s infinite ease;
   animation-fill-mode: both;
   animation-delay: 2.4s;
 }
