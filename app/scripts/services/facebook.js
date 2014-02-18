@@ -14,6 +14,19 @@ angular.module('bonfireApp.services.facebook', [])
       FB.Event.subscribe('auth.authResponseChange', function(response) {
         if (response.status === 'connected') {
           $rootScope.$broadcast('logged_into_fb', response.authResponse);
+          FB.api('/me?fields=picture,email,age_range,first_name,last_name,location,gender', function(response) {
+            if (response && !response.error) {
+              mixpanel.people.set_once({
+                "photo": response.picture.data.url,
+                "email": response.email,
+                "age_range": "" + response.age_range.min + "-" + response.age_range.max,
+                "first_name": response.first_name,
+                "last_name": response.last_name,
+                "location": response.location.name,
+                "gender": response.gender
+              });
+            }
+          });
         } else if (response.status === 'not_authorized') {
           // NTD: my app isn't authorized for user's fb
         } else {
