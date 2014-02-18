@@ -21,8 +21,9 @@ angular.module('bonfireApp.services.facebook', [])
                 "photo": response.picture.data.url,
                 "$email": response.email,
                 "age_range": "" + response.age_range.min + "-" + response.age_range.max,
-                "first_name": response.first_name,
-                "last_name": response.last_name,
+                "$first_name": response.first_name,
+                "$last_name": response.last_name,
+                "$name": response.name,
                 "location": response.location.name,
                 "gender": response.gender
               });
