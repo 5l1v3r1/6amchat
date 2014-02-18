@@ -16,9 +16,10 @@ angular.module('bonfireApp.services.facebook', [])
           $rootScope.$broadcast('logged_into_fb', response.authResponse);
           FB.api('/me?fields=picture,email,age_range,first_name,last_name,location,gender', function(response) {
             if (response && !response.error) {
+              mixpanel.identify(response.id);
               mixpanel.people.set_once({
                 "photo": response.picture.data.url,
-                "email": response.email,
+                "$email": response.email,
                 "age_range": "" + response.age_range.min + "-" + response.age_range.max,
                 "first_name": response.first_name,
                 "last_name": response.last_name,
