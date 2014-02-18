@@ -30,6 +30,7 @@ angular.module('bonfireApp.services.auth', [])
     })
 
     auth.login = function() {
+      mixpanel.track('Clicked Sign In');
       facebook.login().catch(_errorCb);
     }.bind(auth);
 

@@ -4,6 +4,7 @@ angular.module('bonfireApp.services.videoChat', [])
   .factory('videoChat', function($rootScope, vline, chatQueue) {
 
       var _partner = null, _calls = [];
+      var _wait_start = null, _wait_end = null;
 
       var videoChat = {};
       videoChat.isChatting = false, videoChat.isAvailable = false, videoChat.isWaiting = chatQueue.isWaiting;
@@ -17,10 +18,10 @@ angular.module('bonfireApp.services.videoChat', [])
       var _unreadMsgsCounter = 0;
 
       function _callNewPartner() {
+        _wait_start = Date.now();
         chatQueue.getPartner(function(partnerId) {
           // has to be in anonymous fn because vline#session
           // depends on the keyword "this"
-          console.log('videoChat#_callNewPartner: client is connected?', vline.client.isConnected());
           vline.session.startMedia(partnerId);
         });
       }
@@ -49,6 +50,7 @@ angular.module('bonfireApp.services.videoChat', [])
 
         function onEnterConnecting() {
           videoChat.isChatting = true;
+          _wait_end = Date.now();
         }
 
         function onEnterActive() {
@@ -57,9 +59,18 @@ angular.module('bonfireApp.services.videoChat', [])
         }
 
         function onEnterClosed() {
+          mixpanel.track('Finished Chat', {
+            "num_of_msgs": videoChat.msgs.length,
+            "wait_time_in_secs": parseInt((_wait_end - _wait_start) / 1000),
+            "chat_time_in_secs": parseInt((Date.now() - _wait_end) / 1000)
+          });
+
           videoChat.msgs.length = 0;
           _partner = null;
+          _wait_end = null;
+          _wait_start = null;
           videoChat.partnerIsTyping = false;
+
           if (videoChat.isAvailable) _callNewPartner();
         }
 
@@ -127,6 +138,7 @@ angular.module('bonfireApp.services.videoChat', [])
 
       videoChat.callFirstPartner = function() {
         // this.msgPlaceholder = "Quick! Type a joke here and send it by pressing enter before they next you!";
+        mixpanel.track('Clicked Start');
         vline.client.getLocalStream().
           done(function(e) {
             this.streams.local = e;
