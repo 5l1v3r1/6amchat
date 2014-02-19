@@ -6,17 +6,19 @@
 
 * [x] Add waiting animation
 * [x] Add animation/colour to "next step" btns
-* [ ] style chat
-* [ ] Add Google Analytics & Mixpanel
-* [ ] Change font of #front-page
+* [x] Design logo & add favicon
+* [x] style chat
+* [x] Add Mixpanel
 
+* [ ] Change font of #front-page
 * [ ] Setup node process
 
 * [ ] sometimes cam isn't turned off on logout
 
 * [ ] Config for other browsers
 * [ ] Add social media btns
-* [ ] Design logo & add favicon
+
+* [ ] optimize `scope.$watch`es for performance
 
 * [ ] Show msg
   "Hm, your wait seems to be getting long. You can help us get more people on by sharing about us!"
