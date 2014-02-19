@@ -27,6 +27,14 @@ html.no-js
       b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
       mixpanel.init("fdd9678e32a0df3a9dee8f5c67e45091");
       mixpanel.track('Loaded Page');
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-48232611-1', '6amchat.com');
+      ga('send', 'pageview');
     //- build:head
   body(ng-app="bonfireApp")
     //[if lt IE 7]>
