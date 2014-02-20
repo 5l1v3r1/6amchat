@@ -25,6 +25,16 @@
   "Hm, your wait seems to be getting long. Try get more people on by sharing about us!"
   "Hm, your wait seems to be getting long. Try get one of your friends on by sharing about us!"
 
+* [ ] add meta description
+* [ ] add open graph tags
+* [ ] add twitter tags
+
+* [ ] bower_components ain't being cdn'ified
+* [ ] add gzip`ping to nginx (75% redux in bits going over the wire!)
+* [ ] specify character set in http response headers
+* [ ] add caching to files (look in pagespeed chrome ext)
+* [ ] make sure resources have If-Modified-Since HTTP header
+
 ===
 
 * [x] replace bodyParser w/ just JSON
