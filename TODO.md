@@ -14,7 +14,7 @@
 * [x] Change font of #front-page
 * [ ] Setup node process
 * [x] bower_components ain't being cdn'ified
-* [ ] add gzip`ping to nginx (75% redux in bits going over the wire!)
+* [x] add gzip`ping to nginx (75% redux in bits going over the wire!)
 * [ ] optimize `scope.$watch`es for performance
 * [ ] add msg saying none of your fb info is used
 
@@ -22,7 +22,6 @@
 * [ ] add open graph tags
 * [ ] add twitter tags
 
-* [ ] specify character set in http response headers
 * [ ] add caching to files (look in pagespeed chrome ext)
 * [ ] make sure resources have If-Modified-Since HTTP header
 
