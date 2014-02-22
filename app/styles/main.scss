@@ -153,6 +153,26 @@ video {
   }
 }
 
+#beta-triangle {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 25px solid #ea9161;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+}
+
+#beta {
+  transform: rotate(-45deg);
+  display: inline-block;
+  font-size: 14.5px;
+  transform-origin: -32.5px 22px;
+  letter-spacing: 1px;
+  // font-weight: 700;
+}
+
 // #brand-container:hover #brand {
 //   transform: translateY(-100%);
 // }
