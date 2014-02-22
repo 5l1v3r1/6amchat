@@ -10,20 +10,17 @@
 * [x] style chat
 * [x] Add Mixpanel
 * [x] add meta description
-
 * [x] Change font of #front-page
-* [ ] Setup node process
 * [x] bower_components ain't being cdn'ified
 * [x] add gzip`ping to nginx (75% redux in bits going over the wire!)
+* [x] add caching to files (look in pagespeed chrome ext)
+
+* [ ] Setup node process
 * [ ] optimize `scope.$watch`es for performance
 * [ ] add msg saying none of your fb info is used
-
 * [ ] Config for other browsers
 * [ ] add open graph tags
 * [ ] add twitter tags
-
-* [ ] add caching to files (look in pagespeed chrome ext)
-* [ ] make sure resources have If-Modified-Since HTTP header
 
 * [ ] sometimes cam isn't turned off on logout
 
@@ -33,7 +30,6 @@
   "Hm, your wait seems to be getting long. You can help us get more people on by sharing about us!"
   "Hm, your wait seems to be getting long. Try get more people on by sharing about us!"
   "Hm, your wait seems to be getting long. Try get one of your friends on by sharing about us!"
-
 
 ===
 
