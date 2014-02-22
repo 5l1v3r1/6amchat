@@ -14,13 +14,15 @@
 * [x] bower_components ain't being cdn'ified
 * [x] add gzip`ping to nginx (75% redux in bits going over the wire!)
 * [x] add caching to files (look in pagespeed chrome ext)
+* [x] fix mixpanel (adblock's doing it :p)
 
 * [ ] Setup node process
-* [ ] optimize `scope.$watch`es for performance
-* [ ] add msg saying none of your fb info is used
 * [ ] Config for other browsers
+* [ ] add beta tag
+* [ ] add msg saying none of your fb info is used
 * [ ] add open graph tags
 * [ ] add twitter tags
+* [ ] optimize `scope.$watch`es for performance
 
 * [ ] sometimes cam isn't turned off on logout
 
