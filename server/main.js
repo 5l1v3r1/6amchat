@@ -1,6 +1,8 @@
 /*jslint node: true */
 'use strict';
 
+require('newrelic');
+
 var express = require('express');
 require("termcolor").define(); // for console.logging w/ colors
 

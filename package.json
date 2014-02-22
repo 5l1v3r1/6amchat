@@ -30,7 +30,8 @@
     "termcolor": "~0.2.0",
     "green-jwt": "0.0.8-alpha",
     "request": "~2.33.0",
-    "grunt-build-control": "~0.1.2"
+    "grunt-build-control": "~0.1.2",
+    "newrelic": "~1.3.2"
   },
   "engines": {
     "node": ">=0.8.0"
