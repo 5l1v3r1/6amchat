@@ -246,11 +246,35 @@ module.exports = function (grunt) {
           branch: 'prod'
         }
       }
+    },
+    ngconstant: {
+      options: {
+        space: ' '
+      },
+      development: [{
+        dest: '<%= yeoman.app %>/scripts/config.js',
+        wrap: '"use strict";\n\n <%= __ngModule %>',
+        name: 'config',
+        constants: {
+          ENV: 'development',
+          fbAppId: '362760827200419'
+        }
+      }],
+      production: [{
+        dest: '<%= yeoman.app %>/scripts/config.js',
+        wrap: '"use strict";\n\n <%= __ngModule %>',
+        name: 'config',
+        constants: {
+          ENV: 'production',
+          fbAppId: '493236667462235'
+        }
+      }]
     }
   });
 
   grunt.registerTask('server', [
     'clean:server',
+    'ngconstant:development',
     'concurrent:server',
     'express',
     'autoprefixer',
@@ -259,6 +283,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'ngconstant:production',
     'concurrent:dist',
     'htmlmin',
     'useminPrepare',

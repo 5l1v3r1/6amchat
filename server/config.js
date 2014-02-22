@@ -7,7 +7,7 @@ module.exports = {
   dev: {
     root: rootPath,
     app: {
-      name: 'Bonfire — Dev'
+      name: '6AM Chat — Dev'
     },
     facebook: {
       clientID: "362760827200419",
@@ -21,7 +21,7 @@ module.exports = {
   production: {
     root: rootPath,
     app: {
-      name: 'Bonfire'
+      name: '6AM Chat'
     },
     facebook: {
       clientID: "493236667462235",

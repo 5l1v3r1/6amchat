@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('bonfireApp.services.facebook', [])
-  .factory('facebook', function($rootScope, $window, $q) {
+  .factory('facebook', function($rootScope, $window, $q, fbAppId) {
     var facebook = {};
 
     $window.fbAsyncInit = function () {
       FB.init({
-        appId:'493236667462235',
+        appId: fbAppId,
         status: true,
         cookie: true
       });

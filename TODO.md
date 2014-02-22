@@ -18,8 +18,8 @@
 * [x] Setup node process
 * [x] add beta tag
 
-* [ ] Config for other browsers
 * [ ] add msg saying none of your fb info is used
+* [ ] Config for other browsers
 
 * [ ] add open graph tags
 * [ ] add twitter tags
