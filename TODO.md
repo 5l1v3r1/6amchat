@@ -9,31 +9,31 @@
 * [x] Design logo & add favicon
 * [x] style chat
 * [x] Add Mixpanel
+* [x] add meta description
 
-* [ ] Change font of #front-page
+* [x] Change font of #front-page
 * [ ] Setup node process
+* [ ] bower_components ain't being cdn'ified
+* [ ] add gzip`ping to nginx (75% redux in bits going over the wire!)
+* [ ] optimize `scope.$watch`es for performance
+
+* [ ] Config for other browsers
+* [ ] add open graph tags
+* [ ] add twitter tags
+
+* [ ] specify character set in http response headers
+* [ ] add caching to files (look in pagespeed chrome ext)
+* [ ] make sure resources have If-Modified-Since HTTP header
 
 * [ ] sometimes cam isn't turned off on logout
 
-* [ ] Config for other browsers
 * [ ] Add social media btns
-
-* [ ] optimize `scope.$watch`es for performance
 
 * [ ] Show msg
   "Hm, your wait seems to be getting long. You can help us get more people on by sharing about us!"
   "Hm, your wait seems to be getting long. Try get more people on by sharing about us!"
   "Hm, your wait seems to be getting long. Try get one of your friends on by sharing about us!"
 
-* [ ] add meta description
-* [ ] add open graph tags
-* [ ] add twitter tags
-
-* [ ] bower_components ain't being cdn'ified
-* [ ] add gzip`ping to nginx (75% redux in bits going over the wire!)
-* [ ] specify character set in http response headers
-* [ ] add caching to files (look in pagespeed chrome ext)
-* [ ] make sure resources have If-Modified-Since HTTP header
 
 ===
 

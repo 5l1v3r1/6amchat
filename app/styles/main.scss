@@ -149,7 +149,7 @@ video {
   justify-content: center;
   & > span {
     align-self: center;
-    font-size: 24px;
+    font-size: 26px;
   }
 }
 
@@ -322,34 +322,38 @@ video {
   color: white;
   h1 {
     margin-top: 10px;
-    font-size: 41px;
-    line-height: 48px;
-    margin-bottom: 26px;
+    font-size: 36px;
+    line-height: 45px;
+    margin-bottom: 31px;
     position: relative;
     z-index: 2;
+    font-weight: 500;
+    margin-right: 72px;
   }
   h2 {
     margin-top: 28px;
-    font-size: 24px;
+    font-size: 25px;
     line-height: 35px;
     margin-bottom: 0;
     font-weight: 500;
     position: relative;
     z-index: 2;
+    font-weight: 400;
   }
   #fb-login-container {
     user-select: none;
-    margin-top: 96px;
+    margin-top: 120px;
     background-color: #37569a;
     width: 298px;
     height: 55px;
     overflow: hidden;
     color: white;
-    padding: 15px;
+    padding: 15px 13px 15px 17px;
     padding-top: 8px;
     padding-bottom: 10px;
     cursor: pointer;
     transition: .4s ease;
+    font-weight: 500;
     #fb-login {
       transition: .4s ease;
     }
