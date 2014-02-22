@@ -13,9 +13,10 @@
 
 * [x] Change font of #front-page
 * [ ] Setup node process
-* [ ] bower_components ain't being cdn'ified
+* [x] bower_components ain't being cdn'ified
 * [ ] add gzip`ping to nginx (75% redux in bits going over the wire!)
 * [ ] optimize `scope.$watch`es for performance
+* [ ] add msg saying none of your fb info is used
 
 * [ ] Config for other browsers
 * [ ] add open graph tags
