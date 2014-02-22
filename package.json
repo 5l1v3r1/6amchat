@@ -20,7 +20,7 @@
     "grunt-rev": "~0.1.0",
     "grunt-concurrent": "~0.3.0",
     "load-grunt-tasks": "~0.1.0",
-    "grunt-google-cdn": "~0.2.0",
+    "grunt-google-cdn": "git://github.com/passy/grunt-google-cdn.git#upgrade-0.2",
     "grunt-ngmin": "~0.0.2",
     "time-grunt": "~0.1.0",
     "grunt-jade": "~0.4.0",
