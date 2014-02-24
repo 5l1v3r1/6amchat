@@ -153,24 +153,36 @@ video {
   }
 }
 
-#beta-triangle {
+#beta-ribbon {
   width: 0px;
   height: 0px;
   position: absolute;
   left: 0;
   top: 0;
-  border: 25px solid #ea9161;
+  border: 24px solid #ea9161;
+  border-color: #767dac;
   border-bottom-color: transparent;
   border-right-color: transparent;
+}
+
+#beta-whitespace {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 11px solid #222;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  z-index: 2;
 }
 
 #beta {
   transform: rotate(-45deg);
   display: inline-block;
-  font-size: 14.5px;
-  transform-origin: -32.5px 22px;
+  font-size: 12.5px;
+  transform-origin: -33.5px 16px;
   letter-spacing: 1px;
-  // font-weight: 700;
 }
 
 // #brand-container:hover #brand {
