@@ -8,8 +8,6 @@ angular.module('bonfireApp.directives.msgTextarea', []).
       replace: true,
       link: function(scope, elem, attrs) {
         elem.on('keypress', function(e) {
-          scope.videoChat.informIsTyping();
-
           if (e.keyCode == 13) {
             e.preventDefault();
             e.stopPropagation();

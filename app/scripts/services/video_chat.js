@@ -188,17 +188,5 @@ angular.module('bonfireApp.services.videoChat', [])
         return count > 0 ? count : "Nexted!";
       }.bind(videoChat);
 
-      videoChat.informIsTyping = function() {
-        _partner.informLocalTyping();
-      }
-
-      setInterval(function() {
-        if (_partner) {
-          $rootScope.$apply(function() {
-            videoChat.partnerIsTyping = _partner.isTyping();
-          })
-        }
-      }, 1000);
-
       return videoChat;
     });
