@@ -501,10 +501,6 @@ video {
   line-height: 21px;
 }
 
-// #msgs .msg:first-child {
-//   margin-bottom: 10px;
-// }
-
 #msgs .msg:last-child {
   margin-bottom: 15px;
 }
@@ -512,8 +508,7 @@ video {
 .msg {
   font-size: 14px;
   overflow: auto;
-  user-select: text;
-  padding: 4px 19px;
+  padding: 4px 22px;
   padding-bottom: 4.5px;
   padding-right: 100px;
   line-height: 19px;
@@ -533,10 +528,29 @@ video {
   padding: 4px 10px;
   width: intrinsic;
   border-radius: 6px;
+  position: relative;
+  user-select: text;
+  &:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 10px 7px 0 0;
+    border-color: transparent #ecebee;
+    display: block;
+    width: 0;
+    z-index: 1;
+    left: -7px;
+    top: 11px;
+  }
 }
 
 .msg.self .msg-payload {
   float: right;
+  &:after {
+    right: -7px;
+    left: auto;
+    border-width: 10px 0 0 7px;
+  }
 }
 
 .msg:first-child {
