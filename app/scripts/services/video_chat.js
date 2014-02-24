@@ -13,7 +13,7 @@ angular.module('bonfireApp.services.videoChat', [])
         remote: null
       }
 
-      // videoChat.msgPlaceholder = "";
+      videoChat.msgPlaceholder = "";
       videoChat.msg = "", videoChat.msgs = [], videoChat.countingUnreadMsgs = false;
       var _unreadMsgsCounter = 0;
 
@@ -65,6 +65,7 @@ angular.module('bonfireApp.services.videoChat', [])
             "chat_time_in_secs": parseInt((Date.now() - _wait_end) / 1000)
           });
 
+          videoChat.msgPlaceholder = "";
           videoChat.msgs.length = 0;
           _partner = null;
           _wait_end = null;
@@ -77,6 +78,7 @@ angular.module('bonfireApp.services.videoChat', [])
         function onAddRemoteStream(e) {
           $rootScope.$apply(function() {
             videoChat.streams.remote = e.stream;
+            videoChat.msgPlaceholder = "Type a message...";
           });
         }
 
@@ -137,7 +139,6 @@ angular.module('bonfireApp.services.videoChat', [])
       videoChat.logoutClient = vline.logout;
 
       videoChat.callFirstPartner = function() {
-        // this.msgPlaceholder = "Quick! Type a joke here and send it by pressing enter before they next you!";
         mixpanel.track('Clicked Start');
         vline.client.getLocalStream().
           done(function(e) {
@@ -149,8 +150,6 @@ angular.module('bonfireApp.services.videoChat', [])
 
       videoChat.sendMsg = function(e) {
         e.preventDefault();
-
-        // this.msgPlaceholder = "";
         var msg = this.msg;
 
         if (msg) {
