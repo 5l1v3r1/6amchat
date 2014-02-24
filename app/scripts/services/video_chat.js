@@ -111,7 +111,7 @@ angular.module('bonfireApp.services.videoChat', [])
         var msg = e.message;
 
         $rootScope.$apply(function() {
-          videoChat.msgs.push({payload: msg.getBody(), username: 'Them', time: new Date()});
+          videoChat.msgs.push({payload: msg.getBody(), sentBySelf: false, time: new Date()});
         });
       }
 
@@ -155,7 +155,7 @@ angular.module('bonfireApp.services.videoChat', [])
 
         if (msg) {
           this.msg = "";
-          this.msgs.push({payload: msg, username: 'Me', time: new Date()});
+          this.msgs.push({payload: msg, sentBySelf: true, time: new Date()});
           _partner.publishMessage(msg);
         }
       }.bind(videoChat);
@@ -167,7 +167,7 @@ angular.module('bonfireApp.services.videoChat', [])
         if (!prevMsg) {
           return true;
         } else if (msg) {
-          return msg.username !== prevMsg.username;
+          return msg.sentBySelf !== prevMsg.sentBySelf;
         } else {
           return false;
         }

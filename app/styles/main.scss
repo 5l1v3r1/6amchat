@@ -493,11 +493,12 @@ video {
   vertical-align: top;
   width: 100%;
   height: 100%;
-  padding: 12px 20px;
+  padding: 14px 20px;
   font-size: 14px;
   border: none;
   font: -webkit-control;
   min-height: 0;
+  line-height: 21px;
 }
 
 // #msgs .msg:first-child {
@@ -510,48 +511,40 @@ video {
 
 .msg {
   font-size: 14px;
-  position: relative;
   overflow: auto;
+  user-select: text;
+  padding: 4px 19px;
+  padding-bottom: 4.5px;
+  padding-right: 100px;
+  line-height: 19px;
+  width: 100%;
+  &.self {
+    text-align: right;
+    padding-left: 100px;
+    padding-right: 19px;
+  }
   &.newmsger {
-    margin-top: 15px;
-    .msg-payload {
-      margin-left: 0;
-      margin-right: 0;
-    }
+    // padding-top: 14px;
   }
 }
 
-.msg-username, .msg-time, .msg .msg-payload {
-  user-select: text;
-}
-
-.msg-username, .msg-time {
-  width: 54px;
-  font-size: 12px;
-  font-weight: bold;
-  float: left;
-  line-height: 26px;
-}
-
-.msg-username {
-  width: 10%;
-}
-
-.msg-time {
-  width: 11%;
-}
-
-.msg-username {
-  text-align: right;
-}
-
 .msg .msg-payload {
-  padding: 4px 17px;
-  line-height: 19px;
-  width: 79%;
-  margin-right: 11%;
-  float: left;
-  margin-left: 10%;
+  background-color: #ecebee;
+  padding: 4px 10px;
+  width: intrinsic;
+  border-radius: 6px;
+}
+
+.msg.self .msg-payload {
+  float: right;
+}
+
+.msg:first-child {
+  margin-top: 14px;
+}
+
+.msg:last-child {
+  margin-bottom: 14px;
 }
 
 .spinner {

@@ -56,11 +56,10 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
               #fb-login-side
                 img#fb-login-icon(src="images/fb-icon.png")
                 span {{ (auth.isLoggingIn || auth.isLoggedIn) ? "Signing in..." : "Sign in with Facebook" }}
+
       #msgs(scroll-to-bottom-when-changed="videoChat.msgs")
-        .msg(ng-repeat="msg in videoChat.msgs", ng-class="{newmsger: videoChat.changeInMsger($index)}")
-          .msg-username(ng-if="videoChat.changeInMsger($index)"){{ msg.username }}
-          .msg-payload{{ msg.payload }}
-          .msg-time(ng-if="videoChat.changeInMsger($index)"){{ msg.time | date:'h:mm a' | lowercase }}
+        .msg(ng-repeat="msg in videoChat.msgs", ng-class="{self: msg.sentBySelf, newmsger: videoChat.changeInMsger($index)}")
+          .msg-payload {{ msg.payload }}
 
       form#send-msg-form(ng-submit="videoChat.sendMsg($event)", ng-show="auth.isLoggedIn")
         msg-textarea( ng-model="videoChat.msg",
