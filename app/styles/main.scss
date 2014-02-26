@@ -534,13 +534,13 @@ video {
     content: '';
     position: absolute;
     border-style: solid;
-    border-width: 10px 7px 0 0;
+    border-width: 9px 7px 0 0;
     border-color: transparent #ecebee;
     display: block;
     width: 0;
     z-index: 1;
     left: -7px;
-    top: 11px;
+    top: 12px;
   }
 }
 
@@ -549,7 +549,7 @@ video {
   &:after {
     right: -7px;
     left: auto;
-    border-width: 10px 0 0 7px;
+    border-width: 9px 0 0 7px;
   }
 }
 
