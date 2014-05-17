@@ -19,7 +19,10 @@
 * [x] add beta tag
 
 * [ ] add msg saying none of your fb info is used
-* [ ] Config for other browsers
+* [ ] config for other browsers
+* [ ] add conversational headers (Conversation Started – 6:59 pm, etc.)
+* [ ] Style for when vertical height of window is smaller
+* [ ] have msgs pop up after logging in w/ facebook explaining app
 
 * [ ] add open graph tags
 * [ ] add twitter tags
