@@ -18,6 +18,8 @@
 * [x] Setup node process
 * [x] add beta tag
 
+* [ ] hide #msgs if not auth.isLoggedIn
+
 * [ ] add msg saying none of your fb info is used
 * [ ] config for other browsers
 * [ ] add conversational headers (Conversation Started – 6:59 pm, etc.)

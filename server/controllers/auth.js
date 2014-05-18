@@ -16,55 +16,26 @@ module.exports = function(config) {
   }
 
   function createAuthToken(serviceId, userId, expiry, apiSecret) {
-    var subject = serviceId + ':' + userId;
-    var payload = {'iss': serviceId, 'sub': subject, 'exp': expiry};
+    var subject      = serviceId + ':' + userId;
+    var payload      = {'iss': serviceId, 'sub': subject, 'exp': expiry};
     var apiSecretKey = base64urlDecode(apiSecret);
     return jwt.encode(payload, apiSecretKey);
   }
 
-  function createToken(userId) {
+  function createToken() {
+    var userId    = Math.random().toString(36).substr(2, 9);
     var serviceId = config.vline.serviceId;
     var apiSecret = config.vline.apiSecret;
-    var exp = new Date().getTime() + (48 * 60 * 60);
+    var exp       = new Date().getTime() + (48 * 60 * 60);
 
     return createAuthToken(serviceId, userId, exp, apiSecret);
   }
 
   auth.login = function (req, res) {
-    var userToken = req.body.userToken, userId = parseInt(req.body.fbUserId);
-
     console.yellow('Login request made');
 
-    if (userToken) {
-      console.yellow('Polling FB to validate userToken');
-
-      var url = "https://graph.facebook.com/debug_token?input_token=" + userToken;
-      url += "&access_token=" + config.facebook.clientID + "|" + config.facebook.clientSecret;
-
-      http(url, function(error, response, body) {
-        if (error) {
-          res.send(404);
-        }
-        else {
-          var data = JSON.parse(body).data;
-
-          if (data.is_valid && data.user_id === userId) {
-            console.yellow('userToken is valid – generating authToken');
-
-            res.cookie('isAuthenticated', 'true', { signed: true });
-            res.json({ authToken: createToken(data.user_id) });
-          }
-          else {
-            console.yellow(data.error.message);
-            res.send(401);
-          }
-        }
-      })
-    }
-    else {
-      console.yellow("No userToken");
-      res.send(400);
-    }
+    res.cookie('isAuthenticated', 'true', { signed: true });
+    res.json({ authToken: createToken() });
   };
 
   auth.logout = function (req, res) {

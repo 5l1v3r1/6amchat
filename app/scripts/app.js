@@ -5,7 +5,6 @@ var app = angular.module('bonfireApp', ['bonfireApp.services', 'bonfireApp.direc
 angular.module('bonfireApp.services', [ 'bonfireApp.services.vline',
                                         'bonfireApp.services.videoChat',
                                         'bonfireApp.services.chatQueue',
-                                        'bonfireApp.services.facebook',
                                         'bonfireApp.services.auth' ]);
 
 angular.module('bonfireApp.directives', [ 'bonfireApp.directives.videoStream',

@@ -117,7 +117,9 @@ angular.module('bonfireApp.services.videoChat', [])
         on('remove:mediaSession', _onRemoveMediaSession, videoChat).
         on('recv:im', _onMessage, videoChat);
 
-      videoChat.login = vline.login;
+      videoChat.login = function(authToken) {
+        return vline.login(authToken).then(this.callFirstPartner);
+      }.bind(videoChat);
 
       videoChat.logout = function() {
         this.stopChatting();

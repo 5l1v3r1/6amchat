@@ -23,8 +23,8 @@ angular.module('bonfireApp.services.vline', [])
             var session = client.getDefaultSession();
             var userId  = session.getLocalPersonId();
 
-            self.session     = session;
-            self.userId      = userId;
+            self.session = session;
+            self.userId  = userId;
 
             // connect bug: console.log('vline#login: client is connected?', client.isConnected());
             q.resolve();

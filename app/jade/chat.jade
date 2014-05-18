@@ -19,17 +19,16 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
 
         #btns
           #auth-btn
-            button(ng-click="auth.logout()", ng-disabled="!auth.isLoggedIn") Sign Out
+            button(ng-click="auth.logout()", ng-disabled="!auth.isLoggedIn") Stop
 
           #chat-btns-wrapper
             #chat-btns
               .btn#first-chat-btn(ng-class='{half: videoChat.isAvailable}')
-                .gradient(ng-class="{pulse: auth.isLoggedIn && !videoChat.isAvailable}")
+                .gradient(ng-class="{pulse: !videoChat.isAvailable}")
                 button( ng-hide="videoChat.isAvailable",
-                      ng-disabled="!auth.isLoggedIn",
-                      ng-click="videoChat.callFirstPartner()",
-                      ng-class="{pulse: auth.isLoggedIn && !videoChat.isAvailable}" ) Start
-                button(ng-show="videoChat.isAvailable", ng-click='videoChat.stopChatting()') Stop
+                      ng-click="auth.login()",
+                      ng-class="{pulse: !videoChat.isAvailable}" ) Start
+                button(ng-show="videoChat.isAvailable", ng-click='videoChat.stopChatting()') Pause
               .btn#second-chat-btn.half
                 button(ng-click='videoChat.hangUp()', ng-disabled='!videoChat.isChatting') Next
 
@@ -47,15 +46,13 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
         #gradient
         #gradient-shadows
         h1 Chat with a random person from around the world into the wee hours of the morning.
-        h2 Sign in with Facebook, turn on<br>your webcam and microphone,<br>and meet new people!
+        h2 Start, turn on<br>your webcam and microphone,<br>and meet new people!
           #fb-login-container(ng-click="auth.login()")
             #fb-login
               #fb-login-side
-                img#fb-login-icon(src="images/fb-icon.png")
-                span {{ (auth.isLoggingIn || auth.isLoggedIn) ? "Signing in..." : "Sign in with Facebook" }}
+                span {{ (auth.isLoggingIn || auth.isLoggedIn) ? "Starting..." : "Start" }}
               #fb-login-side
-                img#fb-login-icon(src="images/fb-icon.png")
-                span {{ (auth.isLoggingIn || auth.isLoggedIn) ? "Signing in..." : "Sign in with Facebook" }}
+                span {{ (auth.isLoggingIn || auth.isLoggedIn) ? "Starting..." : "Start" }}
 
       #msgs(scroll-to-bottom-when-changed="videoChat.msgs")
         .msg(ng-repeat="msg in videoChat.msgs", ng-class="{self: msg.sentBySelf, newmsger: videoChat.changeInMsger($index)}")

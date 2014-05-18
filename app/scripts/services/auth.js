@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('bonfireApp.services.auth', [])
-  .factory('auth', function($rootScope, $q, facebook, $http, videoChat) {
+  .factory('auth', function($rootScope, $q, $http, videoChat) {
 
     var auth = {};
 
@@ -13,12 +13,10 @@ angular.module('bonfireApp.services.auth', [])
       });
     }
 
-    $rootScope.$on('logged_into_fb', function(e, authResponse) {
+    auth.login = function() {
+      mixpanel.track('Clicked Sign In');
       auth.isLoggingIn = true;
-      $http.post('/login', {
-        userToken: authResponse.accessToken,
-        fbUserId:  authResponse.userID
-      }).success(function(data) {
+      $http.post('/login').success(function(data) {
         // connect bug: console.log('Calling videoChat#login in logged_into_fb callback');
         videoChat.login(data.authToken).then(
           function() {
@@ -27,15 +25,9 @@ angular.module('bonfireApp.services.auth', [])
           }, _errorCb
         );
       }).error(_errorCb);
-    })
-
-    auth.login = function() {
-      mixpanel.track('Clicked Sign In');
-      facebook.login().catch(_errorCb);
     }.bind(auth);
 
     auth.logout = function() {
-      facebook.logout();
       videoChat.logout();
       $http.post('/logout');
       this.isLoggedIn = false;

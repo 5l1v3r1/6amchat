@@ -9,10 +9,6 @@ module.exports = {
     app: {
       name: '6AM Chat — Dev'
     },
-    facebook: {
-      clientID: "362760827200419",
-      clientSecret: "728fcca6f8cd781b79ad52413d1b07a6"
-    },
     vline: {
       serviceId: '1000',
       apiSecret: 'Muiz678ynsPACMITXlcCUBoH2sBw3-rvTdU9X6q9ihw'
@@ -22,10 +18,6 @@ module.exports = {
     root: rootPath,
     app: {
       name: '6AM Chat'
-    },
-    facebook: {
-      clientID: "493236667462235",
-      clientSecret: "0256e393ae14766c3fcbdc337cdd1f07"
     },
     vline: {
       serviceId: '1000',
