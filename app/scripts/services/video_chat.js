@@ -3,7 +3,7 @@
 angular.module('bonfireApp.services.videoChat', [])
   .factory('videoChat', function($rootScope, vline, chatQueue) {
 
-      var _partner = null, _calls = [];
+      var _channel = null, _calls = [];
       var _waitStart = null, _waitEnd = null;
 
       var videoChat = {};
@@ -27,13 +27,13 @@ angular.module('bonfireApp.services.videoChat', [])
       }
 
       videoChat.hangUp = function() {
-        _partner.stopMedia();
+        _channel.stopMedia();
       }
 
       videoChat.stopChatting = function() {
         this.isAvailable = false;
         if (chatQueue.isWaiting) chatQueue.removeSelf();
-        if (_partner) this.hangUp();
+        if (_channel) this.hangUp();
         // connect bug: vline.client.disconnect();
       }.bind(videoChat);
 
@@ -50,12 +50,8 @@ angular.module('bonfireApp.services.videoChat', [])
 
         function onEnterConnecting() {
           videoChat.isChatting = true;
-          _waitEnd = Date.now();
-        }
-
-        function onEnterActive() {
-          // NOTE: assumes there is only one remote stream
-          _partner = this.mediaSession.getRemoteStreams()[0].getPerson();
+          _waitEnd             = Date.now();
+          _channel             = this.mediaSession.getChannel();
         }
 
         function onEnterClosed() {
@@ -65,11 +61,11 @@ angular.module('bonfireApp.services.videoChat', [])
             "chat_time_in_secs": parseInt((Date.now() - _waitEnd) / 1000)
           });
 
-          videoChat.msgPlaceholder = "";
-          videoChat.msgs.length = 0;
-          _partner = null;
-          _waitEnd = null;
-          _waitStart = null;
+          videoChat.msgPlaceholder  = "";
+          videoChat.msgs.length     = 0;
+          _channel                  = null;
+          _waitEnd                  = null;
+          _waitStart                = null;
           videoChat.partnerIsTyping = false;
 
           if (videoChat.isAvailable) _callNewPartner();
@@ -89,7 +85,6 @@ angular.module('bonfireApp.services.videoChat', [])
         mediaSession.
           on('enterState:incoming', onEnterIncoming, this).
           on('enterState:connecting', onEnterConnecting, this).
-          on('enterState:active', onEnterActive, this).
           on('enterState:closed', onEnterClosed, this).
           on('mediaSession:addRemoteStream', onAddRemoteStream, this).
           on('mediaSession:removeRemoteStream', onRemoveRemoteStream, this);
@@ -155,7 +150,7 @@ angular.module('bonfireApp.services.videoChat', [])
         if (msg) {
           this.msg = "";
           this.msgs.push({payload: msg, sentBySelf: true, time: new Date()});
-          _partner.publishMessage(msg);
+          _channel.publishMessage(msg);
         }
       }.bind(videoChat);
 
