@@ -18,12 +18,10 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
               span 6AM CHAT
 
         #btns
-          #stop-n-go-btn
-            button(ng-show="videoChat.isAvailable",
-                   ng-click="auth.logout()") Stop
-            button(ng-hide="videoChat.isAvailable",
-                   ng-click="auth.login()",
-                   ng-class="{showGradient: !videoChat.isAvailable}") Start
+          #stop-n-go-btns-wrapper
+            #stop-n-go-btns(ng-class="{showStop: videoChat.isAvailable}")
+              button#start-btn(ng-click="auth.login()") Start
+              button(ng-click="auth.logout()") Stop
 
           #next-btn
             button(ng-click='videoChat.hangUp()', ng-disabled='!videoChat.isChatting') Next

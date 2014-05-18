@@ -20,6 +20,7 @@
 
 * [ ] hide #msgs if not auth.isLoggedIn
 * [ ] clear textarea after nexting
+* [ ] send msg after clicking start saying hold on we're connecting you w/ someone now
 
 * [ ] add msg saying none of your fb info is used
 * [ ] config for other browsers

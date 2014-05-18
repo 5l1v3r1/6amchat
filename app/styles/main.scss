@@ -211,19 +211,34 @@ video {
   height: 150px;
 }
 
-#stop-n-go-btn {
+#stop-n-go-btns-wrapper {
   height: 50%;
   width: 100%;
   border: 3px solid $dark-color;
   border-bottom: 2px solid $dark-color;
-  display: flex;
-  justify-content: center;
   background-color: white;
+  overflow: hidden;
 }
 
-#stop-n-go-btn button {
+#stop-n-go-btns {
+  width: 250%;
   height: 100%;
-  width: 100%;
+  position: relative;
+  left: 0;
+  &.showStop-add {
+    transition: 0.65s linear;
+  }
+  &.showStop-remove {
+    transition: 0.65s linear;
+  }
+  &.showStop {
+    left: calc(-100% - 4px);
+  }
+}
+
+#stop-n-go-btns button {
+  height: 100%;
+  width: 40%;
   cursor: pointer;
   border: none;
   font-family: "europa";
@@ -233,6 +248,11 @@ video {
     color: #aaa;
     cursor: default;
   }
+}
+
+#stop-n-go-btns #start-btn {
+  border-right: 3px solid black;
+  width: calc(40% + 3px);
 }
 
 #next-btn {
