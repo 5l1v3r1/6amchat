@@ -18,19 +18,15 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
               span 6AM CHAT
 
         #btns
-          #auth-btn
-            button(ng-click="auth.logout()", ng-disabled="!auth.isLoggedIn") Stop
+          #stop-n-go-btn
+            button(ng-show="videoChat.isAvailable",
+                   ng-click="auth.logout()") Stop
+            button(ng-hide="videoChat.isAvailable",
+                   ng-click="auth.login()",
+                   ng-class="{showGradient: !videoChat.isAvailable}") Start
 
-          #chat-btns-wrapper
-            #chat-btns
-              .btn#first-chat-btn(ng-class='{half: videoChat.isAvailable}')
-                .gradient(ng-class="{pulse: !videoChat.isAvailable}")
-                button( ng-hide="videoChat.isAvailable",
-                      ng-click="auth.login()",
-                      ng-class="{pulse: !videoChat.isAvailable}" ) Start
-                button(ng-show="videoChat.isAvailable", ng-click='videoChat.stopChatting()') Pause
-              .btn#second-chat-btn.half
-                button(ng-click='videoChat.hangUp()', ng-disabled='!videoChat.isChatting') Next
+          #next-btn
+            button(ng-click='videoChat.hangUp()', ng-disabled='!videoChat.isChatting') Next
 
       video-stream(stream="videoChat.streams.local", class="large-13 medium-13 small-13 right")
 
@@ -42,7 +38,7 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
 
   #chat.container.large-12.medium-12.small-12.right
     #chat-border
-      #landing-page(ng-if="!auth.isLoggedIn")
+      #landing-page(ng-if="!videoChat.isAvailable")
         #gradient
         #gradient-shadows
         h1 Chat with a random person from around the world into the wee hours of the morning.
@@ -58,7 +54,7 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
         .msg(ng-repeat="msg in videoChat.msgs", ng-class="{self: msg.sentBySelf, newmsger: videoChat.changeInMsger($index)}")
           .msg-payload {{ msg.payload }}
 
-      form#send-msg-form(ng-submit="videoChat.sendMsg($event)", ng-show="auth.isLoggedIn")
-        msg-textarea( ng-model="videoChat.msg",
-                      placeholder="{{videoChat.msgPlaceholder}}",
-                      ng-disabled="!videoChat.isChatting" )
+      form#send-msg-form(ng-submit="videoChat.sendMsg($event)", ng-show="videoChat.isAvailable")
+        msg-textarea(ng-model="videoChat.msg",
+                     placeholder="{{videoChat.msgPlaceholder}}",
+                     ng-disabled="!videoChat.isChatting")
