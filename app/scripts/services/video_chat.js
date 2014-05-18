@@ -4,7 +4,7 @@ angular.module('bonfireApp.services.videoChat', [])
   .factory('videoChat', function($rootScope, vline, chatQueue) {
 
       var _partner = null, _calls = [];
-      var _wait_start = null, _wait_end = null;
+      var _waitStart = null, _waitEnd = null;
 
       var videoChat = {};
       videoChat.isChatting = false, videoChat.isAvailable = false, videoChat.isWaiting = chatQueue.isWaiting;
@@ -18,7 +18,7 @@ angular.module('bonfireApp.services.videoChat', [])
       var _unreadMsgsCounter = 0;
 
       function _callNewPartner() {
-        _wait_start = Date.now();
+        _waitStart = Date.now();
         chatQueue.getPartner(function(partnerId) {
           // has to be in anonymous fn because vline#session
           // depends on the keyword "this"
@@ -50,7 +50,7 @@ angular.module('bonfireApp.services.videoChat', [])
 
         function onEnterConnecting() {
           videoChat.isChatting = true;
-          _wait_end = Date.now();
+          _waitEnd = Date.now();
         }
 
         function onEnterActive() {
@@ -61,15 +61,15 @@ angular.module('bonfireApp.services.videoChat', [])
         function onEnterClosed() {
           mixpanel.track('Finished Chat', {
             "num_of_msgs": videoChat.msgs.length,
-            "wait_time_in_secs": parseInt((_wait_end - _wait_start) / 1000),
-            "chat_time_in_secs": parseInt((Date.now() - _wait_end) / 1000)
+            "wait_time_in_secs": parseInt((_waitEnd - _waitStart) / 1000),
+            "chat_time_in_secs": parseInt((Date.now() - _waitEnd) / 1000)
           });
 
           videoChat.msgPlaceholder = "";
           videoChat.msgs.length = 0;
           _partner = null;
-          _wait_end = null;
-          _wait_start = null;
+          _waitEnd = null;
+          _waitStart = null;
           videoChat.partnerIsTyping = false;
 
           if (videoChat.isAvailable) _callNewPartner();
