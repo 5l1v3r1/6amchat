@@ -18,6 +18,7 @@ angular.module('bonfireApp.services.videoChat', [])
       var _unreadMsgsCounter = 0;
 
       function _callNewPartner() {
+        videoChat.msg = "";
         _waitStart = Date.now();
         chatQueue.getPartner(function(partnerId) {
           // has to be in anonymous fn because vline#session
