@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('bonfireApp.services.videoChat', [])
-  .factory('videoChat', function($rootScope, vline, chatQueue) {
+  .factory('videoChat', function($rootScope, vline, chatQueue, $interval) {
 
       var _channel = null, _calls = [];
       var _waitStart = null, _waitEnd = null;
@@ -18,7 +18,6 @@ angular.module('bonfireApp.services.videoChat', [])
       var _unreadMsgsCounter = 0;
 
       function _callNewPartner() {
-        videoChat.msg = "";
         _waitStart = Date.now();
         chatQueue.getPartner(function(partnerId) {
           // has to be in anonymous fn because vline#session
@@ -32,7 +31,8 @@ angular.module('bonfireApp.services.videoChat', [])
       }
 
       videoChat.stopChatting = function() {
-        this.isAvailable = false;
+        videoChat.msgs.length = 0;
+        this.isAvailable      = false;
         if (chatQueue.isWaiting) chatQueue.removeSelf();
         if (_channel) this.hangUp();
         // connect bug: vline.client.disconnect();
@@ -50,9 +50,10 @@ angular.module('bonfireApp.services.videoChat', [])
         }
 
         function onEnterConnecting() {
-          videoChat.isChatting = true;
-          _waitEnd             = Date.now();
-          _channel             = this.mediaSession.getChannel();
+          videoChat.msgs.length = 0;
+          videoChat.isChatting  = true;
+          _waitEnd              = Date.now();
+          _channel              = this.mediaSession.getChannel();
         }
 
         function onEnterClosed() {
@@ -63,11 +64,11 @@ angular.module('bonfireApp.services.videoChat', [])
           });
 
           videoChat.msgPlaceholder  = "";
+          videoChat.msg             = "";
           videoChat.msgs.length     = 0;
           _channel                  = null;
           _waitEnd                  = null;
           _waitStart                = null;
-          videoChat.partnerIsTyping = false;
 
           if (videoChat.isAvailable) _callNewPartner();
         }
@@ -138,11 +139,22 @@ angular.module('bonfireApp.services.videoChat', [])
 
       videoChat.callFirstPartner = function() {
         mixpanel.track('Clicked Start');
+
         vline.client.getLocalStream().
           done(function(e) {
             this.streams.local = e;
             this.isAvailable = true;
             _callNewPartner();
+
+            $interval(function() {
+              if (!this.isChatting) {
+                this.msgs.push({
+                  payload: "Hold on a second... we're trying to find you someone.",
+                  sentBySelf: false,
+                  time: new Date()
+                });
+              }
+            }.bind(this), 4000, 1);
           }, this);
       }.bind(videoChat);
 
