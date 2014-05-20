@@ -13,11 +13,10 @@ angular.module('bonfireApp.services.chatQueue', [])
         var partnerId = data.userId;
 
         if (partnerId) {
-          this.isWaiting = false;
           cb(partnerId);
         };
       }.bind(this));
-    }
+    }.bind(chatQueue)
 
     chatQueue.removeSelf = function() {
       return $http.delete('/api/queue/' + vline.userId);

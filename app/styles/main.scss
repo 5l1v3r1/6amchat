@@ -304,7 +304,7 @@ video {
     margin-right: 72px;
   }
   h2 {
-    margin-top: 28px;
+    margin-top: 88px;
     font-size: 25px;
     line-height: 35px;
     margin-bottom: 0;
@@ -312,43 +312,39 @@ video {
     position: relative;
     z-index: 2;
     font-weight: 400;
+    span {
+      vertical-align: text-top;
+    }
   }
-  #fb-login-container {
+  #login-container {
     user-select: none;
-    margin-top: 120px;
+    margin-top: 6px;
+    margin-left: 4px;
+    vertical-align: middle;
     background-color: #37569a;
-    width: 298px;
-    height: 55px;
+    height: 48px;
     overflow: hidden;
     color: white;
-    padding: 15px 13px 15px 17px;
-    padding-top: 8px;
-    padding-bottom: 10px;
+    padding: 5px 19px 0 14px;
     cursor: pointer;
     transition: .4s ease;
     font-weight: 500;
-    #fb-login {
+    display: inline-block;
+    width: 207px;
+    position: relative;
+    #login {
       transition: .4s ease;
     }
     &:hover {
       background-color: #4868af;
-      #fb-login {
+      #login {
         transform: translateY(-50%);
       }
     }
-    #fb-login-side {
-      height: 55px;
-    }
-    #fb-login-icon {
-      height: 20px;
-      margin-right: 20px;
-      margin-left: 3px;
-      margin-bottom: 4px;
-    }
-    span {
-      -webkit-font-smoothing: antialiased;
-      margin-right: 11px;
+    .login-side {
+      height: 48px;
       font-size: 21px;
+      -webkit-font-smoothing: antialiased;
     }
   }
 }

@@ -7,7 +7,7 @@ angular.module('bonfireApp.services.videoChat', [])
       var _waitStart = null, _waitEnd = null;
 
       var videoChat = {};
-      videoChat.isChatting = false, videoChat.isAvailable = false, videoChat.isWaiting = chatQueue.isWaiting;
+      videoChat.isChatting = false, videoChat.isAvailable = false;
       videoChat.streams = {
         local: null,
         remote: null
@@ -19,6 +19,17 @@ angular.module('bonfireApp.services.videoChat', [])
 
       function _callNewPartner() {
         _waitStart = Date.now();
+
+        $interval(function() {
+          if (chatQueue.isWaiting) {
+            this.msgs.push({
+              payload: "We're trying to find someone for you.",
+              sentBySelf: false,
+              time: new Date()
+            });
+          }
+        }.bind(videoChat), 1500, 1);
+
         chatQueue.getPartner(function(partnerId) {
           // has to be in anonymous fn because vline#session
           // depends on the keyword "this"
@@ -51,6 +62,7 @@ angular.module('bonfireApp.services.videoChat', [])
         function onEnterConnecting() {
           videoChat.msgs.length = 0;
           videoChat.isChatting  = true;
+          chatQueue.isWaiting   = false;
           _waitEnd              = Date.now();
           _channel              = this.mediaSession.getChannel();
         }
@@ -147,14 +159,24 @@ angular.module('bonfireApp.services.videoChat', [])
             _callNewPartner();
 
             $interval(function() {
-              if (!this.isChatting) {
+              if (chatQueue.isWaiting) {
                 this.msgs.push({
-                  payload: "Hold on a second... we're trying to find you someone.",
+                  payload: "Hm, it looks like we're having a hard time.",
                   sentBySelf: false,
                   time: new Date()
                 });
               }
-            }.bind(this), 4000, 1);
+            }.bind(this), 10000, 1);
+
+            $interval(function() {
+              if (chatQueue.isWaiting) {
+                this.msgs.push({
+                  payload: "Feel free to share about us on Facebook or Twitter so more people sign on!",
+                  sentBySelf: false,
+                  time: new Date()
+                });
+              }
+            }.bind(this), 12500, 1);
           }, this);
       }.bind(videoChat);
 

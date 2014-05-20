@@ -40,13 +40,13 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
         #gradient
         #gradient-shadows
         h1 Chat with a random person from around the world into the wee hours of the morning.
-        h2 Start, turn on<br>your webcam and microphone,<br>and meet new people!
-          #fb-login-container(ng-click="auth.login()")
-            #fb-login
-              #fb-login-side
-                span {{ (auth.isLoggingIn || auth.isLoggedIn) ? "Starting..." : "Start" }}
-              #fb-login-side
-                span {{ (auth.isLoggingIn || auth.isLoggedIn) ? "Starting..." : "Start" }}
+        h2 Turn on your webcam<br><span>{{ (auth.isLoggingIn || auth.isLoggedIn) ? "by" : "and" }}</span>
+          #login-container(ng-click="auth.login()")
+            #login
+              .login-side
+                {{ (auth.isLoggingIn || auth.isLoggedIn) ? "clicking Allow..." : "meet new people!" }}
+              .login-side
+                {{ (auth.isLoggingIn || auth.isLoggedIn) ? "clicking Allow..." : "meet new people!" }}
 
       #msgs(scroll-to-bottom-when-changed="videoChat.msgs", ng-show="videoChat.isAvailable")
         .msg(ng-repeat="msg in videoChat.msgs", ng-class="{self: msg.sentBySelf, newmsger: videoChat.changeInMsger($index)}")
