@@ -31,7 +31,6 @@ angular.module('bonfireApp.services.videoChat', [])
       }
 
       videoChat.stopChatting = function() {
-        videoChat.msgs.length = 0;
         this.isAvailable      = false;
         if (chatQueue.isWaiting) chatQueue.removeSelf();
         if (_channel) this.hangUp();
@@ -120,6 +119,7 @@ angular.module('bonfireApp.services.videoChat', [])
         on('recv:im', _onMessage, videoChat);
 
       videoChat.login = function(authToken) {
+        videoChat.msgs.length = 0;
         return vline.login(authToken).then(this.callFirstPartner);
       }.bind(videoChat);
 

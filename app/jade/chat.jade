@@ -48,7 +48,7 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
               #fb-login-side
                 span {{ (auth.isLoggingIn || auth.isLoggedIn) ? "Starting..." : "Start" }}
 
-      #msgs(scroll-to-bottom-when-changed="videoChat.msgs")
+      #msgs(scroll-to-bottom-when-changed="videoChat.msgs", ng-show="videoChat.isAvailable")
         .msg(ng-repeat="msg in videoChat.msgs", ng-class="{self: msg.sentBySelf, newmsger: videoChat.changeInMsger($index)}")
           .msg-payload {{ msg.payload }}
 
