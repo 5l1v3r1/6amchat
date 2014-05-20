@@ -20,6 +20,11 @@
 
 * [x] clear textarea after nexting
 * [x] send msg after clicking start saying hold on we're connecting you w/ someone now
+* [ ] get rid of bonfire names, fb names, etc.
+* [ ] fix up analytics
+* [ ] double check in firefox
+* [ ] add msg to use in chrome/firefox if in browser that doesn't support
+* [ ] add contact, faq, terms, privacy pages
 
 * [ ] add msg saying none of your fb info is used
 * [ ] config for other browsers
