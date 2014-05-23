@@ -44,7 +44,7 @@ html, body, main {
 
 main {
   overflow-x: scroll;
-  padding: 36px 48px;
+  padding: 22px 48px 50px 48px;
 }
 
 a {
@@ -574,5 +574,33 @@ video {
   .twitter-share-button {
     margin-left: 11px;
     vertical-align: middle;
+  }
+}
+
+footer {
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+  width: 100%;
+  font-family: "europa";
+  color: #222;
+  font-size: 15px;
+  padding: 0 48px;
+  #footer-rules {
+    float: left;
+  }
+  #footer-links {
+    float: right;
+  }
+  a {
+    &:visited {
+      color: #222;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  a + a {
+    margin-left: 10px;
   }
 }
