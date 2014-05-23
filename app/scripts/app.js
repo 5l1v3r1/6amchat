@@ -1,6 +1,10 @@
 'use strict';
 
-var app = angular.module('bonfireApp', ['bonfireApp.services', 'bonfireApp.directives', 'ngAnimate', 'config']);
+var app = angular.module('bonfireApp', [ 'bonfireApp.services',
+                                         'bonfireApp.directives',
+                                         'ngAnimate',
+                                         'config',
+                                         'ngSanitize' ]);
 
 angular.module('bonfireApp.services', [ 'bonfireApp.services.vline',
                                         'bonfireApp.services.videoChat',

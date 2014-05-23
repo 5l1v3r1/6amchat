@@ -7,6 +7,10 @@
     "es5-shim": "~2.0.8",
     "foundation": "zurb/bower-foundation#~5.0.2",
     "jquery": "~2.0.3",
-    "angular-animate": "~1.2.10"
+    "angular-animate": "~1.2.10",
+    "angular-sanitize": "~1.2.16"
+  },
+  "resolutions": {
+    "angular": "~1.2.6"
   }
 }

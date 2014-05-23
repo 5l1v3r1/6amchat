@@ -50,7 +50,8 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
 
       #msgs(scroll-to-bottom-when-changed="videoChat.msgs", ng-show="videoChat.isAvailable")
         .msg(ng-repeat="msg in videoChat.msgs", ng-class="{self: msg.sentBySelf, newmsger: videoChat.changeInMsger($index)}")
-          .msg-payload {{ msg.payload }}
+          .msg-payload(ng-if="msg.html", ng-bind-html="msg.payload")
+          .msg-payload(ng-if="!msg.html") {{ msg.payload }}
 
       form#send-msg-form(ng-submit="videoChat.sendMsg($event)", ng-show="videoChat.isAvailable")
         msg-textarea(ng-model="videoChat.msg",

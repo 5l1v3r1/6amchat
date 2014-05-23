@@ -567,3 +567,15 @@ video {
     background-color: #ff9f6e;
   }
 }
+
+#waiting-share-links {
+  margin-top: 11px;
+  margin-bottom: 6px;
+  .fb_iframe_widget {
+    vertical-align: middle;
+  }
+  .twitter-share-button {
+    margin-left: 11px;
+    vertical-align: middle;
+  }
+}

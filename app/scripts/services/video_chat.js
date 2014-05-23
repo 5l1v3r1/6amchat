@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('bonfireApp.services.videoChat', [])
-  .factory('videoChat', function($rootScope, vline, chatQueue, $interval) {
+  .factory('videoChat', function($rootScope, vline, chatQueue, $timeout, $sce) {
 
       var _channel = null, _calls = [];
       var _waitStart = null, _waitEnd = null;
@@ -20,15 +20,16 @@ angular.module('bonfireApp.services.videoChat', [])
       function _callNewPartner() {
         _waitStart = Date.now();
 
-        $interval(function() {
+        $timeout(function() {
           if (chatQueue.isWaiting) {
             this.msgs.push({
               payload: "We're trying to find someone for you.",
               sentBySelf: false,
-              time: new Date()
+              time: new Date(),
+              html: false
             });
           }
-        }.bind(videoChat), 1500, 1);
+        }.bind(videoChat), 1500);
 
         chatQueue.getPartner(function(partnerId) {
           // has to be in anonymous fn because vline#session
@@ -121,7 +122,12 @@ angular.module('bonfireApp.services.videoChat', [])
         var msg = e.message;
 
         $rootScope.$apply(function() {
-          videoChat.msgs.push({payload: msg.getBody(), sentBySelf: false, time: new Date()});
+          videoChat.msgs.push({
+            payload: msg.getBody(),
+            sentBySelf: false,
+            time: new Date(),
+            html: false
+          });
         });
       }
 
@@ -158,25 +164,41 @@ angular.module('bonfireApp.services.videoChat', [])
             this.isAvailable = true;
             _callNewPartner();
 
-            $interval(function() {
+            $timeout(function() {
               if (chatQueue.isWaiting) {
                 this.msgs.push({
                   payload: "Hm, it looks like we're having a hard time.",
                   sentBySelf: false,
-                  time: new Date()
+                  time: new Date(),
+                  html: false
                 });
               }
-            }.bind(this), 10000, 1);
+            }.bind(this), 10000);
 
-            $interval(function() {
+            $timeout(function() {
               if (chatQueue.isWaiting) {
                 this.msgs.push({
-                  payload: "Feel free to share about us on Facebook or Twitter so more people sign on!",
+                  payload: $sce.trustAsHtml("Feel free to share about us on Facebook or" +
+                                            " Twitter so more people sign on!" +
+                                            "<div id='waiting-share-links'>" +
+                                            "<div data-href='https://developers.facebook.com/docs/plugins/' " +
+                                            "data-layout='button_count' data-action='like' data-show-faces='true' " +
+                                            "data-share='true' class='fb-like'></div>" +
+                                            "<a href='https://twitter.com/share' class='twitter-share-button' " +
+                                            "data-lang='en'>Tweet</a>" +
+                                            "</div>"),
                   sentBySelf: false,
-                  time: new Date()
+                  time: new Date(),
+                  html: true
                 });
               }
-            }.bind(this), 12500, 1);
+            }.bind(this), 12500).then(function() {
+              $timeout(function() {
+                twttr.widgets.load(document.getElementById("waiting-share-links"));
+                FB.XFBML.parse(document.getElementById("waiting-share-links"));
+              }, 10);
+            });
+
           }, this);
       }.bind(videoChat);
 
