@@ -22,14 +22,39 @@ angular.module('bonfireApp.services.videoChat', [])
 
         $timeout(function() {
           if (chatQueue.isWaiting) {
-            this.msgs.push({
-              payload: "We're trying to find someone for you.",
+            videoChat.msgs.push({
+              payload: $sce.trustAsHtml("We're trying to find someone for you."),
               sentBySelf: false,
               time: new Date(),
-              html: false
+              html: true
             });
           }
-        }.bind(videoChat), 1500);
+        }, 1500);
+
+        $timeout(function() {
+          if (chatQueue.isWaiting) {
+            videoChat.msgs.push({
+              payload: $sce.trustAsHtml("If the wait takes too long, " +
+                                        "feel free to share about us on Facebook or" +
+                                        " Twitter so more people sign on!" +
+                                        "<div id='waiting-share-links'>" +
+                                        "<div data-href='https://developers.facebook.com/docs/plugins/' " +
+                                        "data-layout='button_count' data-action='like' data-show-faces='true' " +
+                                        "data-share='true' class='fb-like'></div>" +
+                                        "<a href='https://twitter.com/share' class='twitter-share-button' " +
+                                        "data-lang='en'>Tweet</a>" +
+                                        "</div>"),
+              sentBySelf: false,
+              time: new Date(),
+              html: true
+            });
+          }
+        }, 3500).then(function() {
+          $timeout(function() {
+            twttr.widgets.load(document.getElementById("waiting-share-links"));
+            FB.XFBML.parse(document.getElementById("waiting-share-links"));
+          }, 10);
+        });
 
         chatQueue.getPartner(function(partnerId) {
           // has to be in anonymous fn because vline#session
@@ -163,42 +188,6 @@ angular.module('bonfireApp.services.videoChat', [])
             this.streams.local = e;
             this.isAvailable = true;
             _callNewPartner();
-
-            $timeout(function() {
-              if (chatQueue.isWaiting) {
-                this.msgs.push({
-                  payload: "Hm, it looks like we're having a hard time.",
-                  sentBySelf: false,
-                  time: new Date(),
-                  html: false
-                });
-              }
-            }.bind(this), 10000);
-
-            $timeout(function() {
-              if (chatQueue.isWaiting) {
-                this.msgs.push({
-                  payload: $sce.trustAsHtml("Feel free to share about us on Facebook or" +
-                                            " Twitter so more people sign on!" +
-                                            "<div id='waiting-share-links'>" +
-                                            "<div data-href='https://developers.facebook.com/docs/plugins/' " +
-                                            "data-layout='button_count' data-action='like' data-show-faces='true' " +
-                                            "data-share='true' class='fb-like'></div>" +
-                                            "<a href='https://twitter.com/share' class='twitter-share-button' " +
-                                            "data-lang='en'>Tweet</a>" +
-                                            "</div>"),
-                  sentBySelf: false,
-                  time: new Date(),
-                  html: true
-                });
-              }
-            }.bind(this), 12500).then(function() {
-              $timeout(function() {
-                twttr.widgets.load(document.getElementById("waiting-share-links"));
-                FB.XFBML.parse(document.getElementById("waiting-share-links"));
-              }, 10);
-            });
-
           }, this);
       }.bind(videoChat);
 
