@@ -202,19 +202,6 @@ angular.module('bonfireApp.services.videoChat', [])
         }
       }.bind(videoChat);
 
-      videoChat.changeInMsger = function(index) {
-        var msg = this.msgs[index];
-        var prevMsg = this.msgs[index - 1];
-
-        if (!prevMsg) {
-          return true;
-        } else if (msg) {
-          return msg.sentBySelf !== prevMsg.sentBySelf;
-        } else {
-          return false;
-        }
-      }.bind(videoChat);
-
       videoChat.startCountingMsgs = function() {
         this.countingUnreadMsgs = true;
         _unreadMsgsCounter = this.msgs.length;

@@ -49,7 +49,7 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
                 {{ (auth.isLoggingIn || auth.isLoggedIn) ? "clicking Allow..." : "meet new people!" }}
 
       #msgs(scroll-to-bottom-when-changed="videoChat.msgs", ng-show="videoChat.isAvailable")
-        .msg(ng-repeat="msg in videoChat.msgs", ng-class="{self: msg.sentBySelf, newmsger: videoChat.changeInMsger($index)}")
+        .msg(ng-repeat="msg in videoChat.msgs", ng-class="{self: msg.sentBySelf}")
           .msg-payload(ng-if="msg.html", ng-bind-html="msg.payload")
           .msg-payload(ng-if="!msg.html") {{ msg.payload }}
 
