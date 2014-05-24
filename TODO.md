@@ -20,6 +20,8 @@
 
 * [x] clear textarea after nexting
 * [x] send msg after clicking start saying hold on we're connecting you w/ someone now
+* [ ] fix fb/twitter links and fb modal cut off
+* [ ] spiffy up twitter/fb pages
 * [ ] get rid of bonfire names, fb names, etc.
 * [ ] fix up analytics
 * [ ] double check in firefox

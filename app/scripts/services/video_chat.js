@@ -23,10 +23,10 @@ angular.module('bonfireApp.services.videoChat', [])
         $timeout(function() {
           if (chatQueue.isWaiting) {
             videoChat.msgs.push({
-              payload: $sce.trustAsHtml("We're trying to find someone for you."),
+              payload: "Trying to find someone for you...",
               sentBySelf: false,
               time: new Date(),
-              html: true
+              html: false
             });
           }
         }, 1500);
@@ -34,9 +34,8 @@ angular.module('bonfireApp.services.videoChat', [])
         $timeout(function() {
           if (chatQueue.isWaiting) {
             videoChat.msgs.push({
-              payload: $sce.trustAsHtml("If the wait takes too long, " +
-                                        "feel free to share about us on Facebook or" +
-                                        " Twitter so more people sign on!" +
+              payload: $sce.trustAsHtml("If waiting's not your thing, feel free to share about " +
+                                        "us so more people get online!" +
                                         "<div id='waiting-share-links'>" +
                                         "<div data-href='https://developers.facebook.com/docs/plugins/' " +
                                         "data-layout='button_count' data-action='like' data-show-faces='true' " +
@@ -48,13 +47,13 @@ angular.module('bonfireApp.services.videoChat', [])
               time: new Date(),
               html: true
             });
+
+            $timeout(function() {
+              twttr.widgets.load(document.getElementById("waiting-share-links"));
+              FB.XFBML.parse(document.getElementById("waiting-share-links"));
+            }, 10);
           }
-        }, 3500).then(function() {
-          $timeout(function() {
-            twttr.widgets.load(document.getElementById("waiting-share-links"));
-            FB.XFBML.parse(document.getElementById("waiting-share-links"));
-          }, 10);
-        });
+        }, 7500);
 
         chatQueue.getPartner(function(partnerId) {
           // has to be in anonymous fn because vline#session
