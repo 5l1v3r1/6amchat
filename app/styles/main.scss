@@ -44,7 +44,7 @@ html, body, main {
 
 main {
   overflow-x: scroll;
-  padding: 22px 48px 50px 48px;
+  padding: 22px 48px 48px 48px;
 }
 
 a {
@@ -579,28 +579,20 @@ video {
 
 footer {
   position: absolute;
-  bottom: 20px;
+  bottom: 18px;
   text-align: center;
   width: 100%;
   font-family: "europa";
-  color: #222;
-  font-size: 15px;
+  color: #999;
+  font-size: 14px;
   padding: 0 48px;
-  #footer-rules {
-    float: left;
-  }
-  #footer-links {
-    float: right;
-  }
   a {
+    color: #999;
     &:visited {
-      color: #222;
+      color: #999;
     }
     &:hover {
       text-decoration: underline;
     }
-  }
-  a + a {
-    margin-left: 10px;
   }
 }
