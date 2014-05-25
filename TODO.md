@@ -17,35 +17,34 @@
 * [x] fix mixpanel (adblock's doing it :p)
 * [x] Setup node process
 * [x] add beta tag
+* [x] Come up w/ name and design logo
 
 * [x] clear textarea after nexting
 * [x] send msg after clicking start saying hold on we're connecting you w/ someone now
-* [ ] fix fb/twitter links and fb modal cut off
-* [ ] spiffy up twitter/fb pages
-* [ ] get rid of bonfire names, fb names, etc.
-* [ ] fix up analytics
-* [ ] double check in firefox
-* [ ] add msg to use in chrome/firefox if in browser that doesn't support
-* [ ] add contact, faq, terms, privacy pages
-
-* [ ] add msg saying none of your fb info is used
-* [ ] config for other browsers
-* [ ] add conversational headers (Conversation Started – 6:59 pm, etc.)
-* [ ] Style for when vertical height of window is smaller
-* [ ] have msgs pop up after logging in w/ facebook explaining app
-
-* [ ] add open graph tags
-* [ ] add twitter tags
-* [ ] optimize `scope.$watch`es for performance
-
-* [ ] sometimes cam isn't turned off on logout
-
-* [ ] Add social media btns
-
-* [ ] Show msg
+* [x] spiffy up twitter/fb pages
+* [x] fix fb/twitter links
+* [x] Add social media btns
+* [x] Show msg
   "Hm, your wait seems to be getting long. You can help us get more people on by sharing about us!"
   "Hm, your wait seems to be getting long. Try get more people on by sharing about us!"
   "Hm, your wait seems to be getting long. Try get one of your friends on by sharing about us!"
+
+* [ ] fix fb modal cut off
+* [ ] iterate bios on twitter/fb pages
+* [ ] add hashtags to default tweet
+* [ ] add open graph tags
+* [ ] add twitter tags
+* [ ] get rid of bonfire names, fb names, etc.
+* [ ] fix up analytics
+* [ ] double check in firefox
+
+* [ ] config for other browsers
+* [ ] add contact, faq, terms, privacy pages
+
+* [ ] add conversational headers (Conversation Started – 6:59 pm, etc.)
+* [ ] Style for when vertical height of window is smaller
+* [ ] optimize `scope.$watch`es for performance
+* [ ] sometimes cam isn't turned off on logout
 
 ===
 
@@ -115,31 +114,11 @@
 * [MOST EXCELLENT FAIL] iterate style and add sick color scheme!!!!
 
 * [x] make send button styled like other buttons
-* [ ] add side nav
-  - twitter
-  - fb
-  - email
-  - audio
-* [ ] add color when btn is pressed
-* [ ] add sick css3 animation when waiting!!!
+* [x] add sick css3 animation when waiting!!!
 * [ ] make responsive for window size
 * [ ] add back partner is typing status
-* [ ] animate nicely: new mediastream, change of text in .btns
-
 * [ ] fix audio option
-
-* [ ] add "landing page" info about what the website is
-* [ ] check what other browsers i can make work for, and add msg explaining app is not compatible for the rest
-
-* [ ] Come up w/ name and design logo
-* [ ] Add favicon (look at vLine's node-example for how-to)
-* [ ] lock down fb security: https://developers.facebook.com/docs/facebook-login/security#surfacearea
-* [ ] if authToken is found to be invalid on backend, have user on frontend sign in again if accessToken expired: https://developers.facebook.com/blog/post/2011/05/13/how-to--handle-expired-access-tokens/
-
 * [ ] on production prohibit more than one client on one machine
-* [ ] fix race bugs in video_chat by making sure concurrent processing doesn't screw process
-
-_stop coding by feb 3rd_
 
 * [?] stop remoteMediaStream in video_chat.js where appropriate
 
