@@ -83,6 +83,14 @@ button {
   clear: both;
 }
 
+.clearfix:after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
 .center {
   margin: 0 auto;
 }
@@ -444,7 +452,6 @@ video {
 
 .msg {
   font-size: 14px;
-  overflow: auto;
   padding: 4px 22px;
   padding-bottom: 4.5px;
   padding-right: 100px;
@@ -454,6 +461,7 @@ video {
     text-align: right;
     padding-left: 100px;
     padding-right: 19px;
+    @extend .clearfix;
   }
 }
 

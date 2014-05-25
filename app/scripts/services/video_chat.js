@@ -49,8 +49,11 @@ angular.module('bonfireApp.services.videoChat', [])
             });
 
             $timeout(function() {
-              twttr.widgets.load(document.getElementById("waiting-share-links"));
-              FB.XFBML.parse(document.getElementById("waiting-share-links"));
+              var elem = document.getElementById("waiting-share-links");
+              twttr.widgets.load(elem);
+              FB.XFBML.parse(elem, function() {
+                $('#waiting-share-links').css('overflow', 'visible');
+              });
             }, 10);
           }
         }, 7500);
