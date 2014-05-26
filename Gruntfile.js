@@ -91,7 +91,7 @@ module.exports = function (grunt) {
     jade: {
       index: {
         files: {
-          '.tmp/': ['<%= yeoman.app %>/jade/index.jade']
+          '.tmp/': ['<%= yeoman.app %>/jade/index.jade', '<%= yeoman.app %>/jade/mobile.jade']
         },
         options: {
           basePath: '<%= yeoman.app %>/jade/',
@@ -101,7 +101,7 @@ module.exports = function (grunt) {
       }
     },
     useminPrepare: {
-      html: '.tmp/index.html',
+      html: ['.tmp/index.html', '.tmp/mobile.html'],
       options: {
         dest: '<%= yeoman.dist %>/public'
       }
@@ -149,7 +149,7 @@ module.exports = function (grunt) {
           removeOptionalTags: true*/
         },
         files: {
-          '<%= yeoman.dist %>/public/index.html': '.tmp/index.html'
+          '<%= yeoman.dist %>/public/index.html': ['.tmp/index.html', '.tmp/mobile.html']
         }
       }
     },
