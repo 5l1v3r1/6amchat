@@ -30,13 +30,13 @@
   "Hm, your wait seems to be getting long. Try get one of your friends on by sharing about us!"
 
 * [x] fix fb modal cut off
-* [ ] add open graph tags
-* [ ] add twitter tags
-* [ ] add hashtags to default tweet
 * [ ] iterate bios on twitter/fb pages
 * [ ] get rid of bonfire names, fb names, etc.
 * [ ] fix up analytics
 * [ ] double check in firefox
+
+* [ ] add open graph tags
+* [ ] add twitter tags
 
 * [ ] config for other browsers
 * [ ] add contact, faq, terms, privacy pages

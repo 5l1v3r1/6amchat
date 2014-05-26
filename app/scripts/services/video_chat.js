@@ -36,13 +36,14 @@ angular.module('bonfireApp.services.videoChat', [])
             videoChat.msgs.push({
               payload: $sce.trustAsHtml("If waiting's not your thing, feel free to share about " +
                                         "us so more people get online!" +
-                                        "<div id='waiting-share-links'>" +
-                                        "<div data-href='https://developers.facebook.com/docs/plugins/' " +
-                                        "data-layout='button_count' data-action='like' data-show-faces='true' " +
+                                        "<div id='waiting-share-links' style='overflow: hidden;'>" +
+                                        "<div data-href='http://6amchat.com'" +
+                                        "data-layout='button_count' data-action='like' data-show-faces='false' " +
                                         "data-share='true' class='fb-like'></div>" +
                                         "<a href='https://twitter.com/share' class='twitter-share-button' " +
-                                        "data-lang='en'>Tweet</a>" +
-                                        "</div>"),
+                                        "data-lang='en' data-url='http://6amchat.com' data-text=" +
+                                        "\"Come join me and meet random people from around the world on\">" +
+                                        "Tweet</a></div>"),
               sentBySelf: false,
               time: new Date(),
               html: true
