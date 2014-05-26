@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('bonfireApp.services.chatQueue', [])
+angular.module('app.services.chatQueue', [])
   .factory('chatQueue', function($http, vline) {
     var chatQueue = {};
 

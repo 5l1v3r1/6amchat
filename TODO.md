@@ -30,8 +30,8 @@
   "Hm, your wait seems to be getting long. Try get one of your friends on by sharing about us!"
 
 * [x] fix fb modal cut off
-* [ ] iterate bios on twitter/fb pages
-* [ ] get rid of bonfire names, fb names, etc.
+* [x] iterate bios on twitter/fb pages
+* [x] get rid of bonfire names, fb names, etc.
 * [ ] fix up analytics
 * [ ] double check in firefox
 

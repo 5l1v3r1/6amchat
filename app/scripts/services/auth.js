@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('bonfireApp.services.auth', [])
+angular.module('app.services.auth', [])
   .factory('auth', function($rootScope, $q, $http, videoChat) {
 
     var auth = {};

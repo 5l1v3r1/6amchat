@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('bonfireApp.services.videoChat', [])
+angular.module('app.services.videoChat', [])
   .factory('videoChat', function($rootScope, vline, chatQueue, $timeout, $sce) {
 
       var _channel = null, _calls = [];

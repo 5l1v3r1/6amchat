@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('bonfireApp.directives.scrollToBottomWhenChanged', []).
+angular.module('app.directives.scrollToBottomWhenChanged', []).
   directive('scrollToBottomWhenChanged', function() {
     return {
       restrict: 'A',

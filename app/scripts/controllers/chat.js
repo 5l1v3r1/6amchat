@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('bonfireApp')
+angular.module('app')
   .controller('ChatCtrl', function($scope, videoChat, auth) {
 
     var _orgPageTitle = document.title;

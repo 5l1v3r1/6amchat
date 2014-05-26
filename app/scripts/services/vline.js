@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('bonfireApp.services.vline', [])
+angular.module('app.services.vline', [])
   .factory('vline', function($rootScope, $q) {
 
         var _SERVICE_ID = '1000', options = { serviceId: _SERVICE_ID };

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('bonfireApp.directives.msgTextarea', []).
+angular.module('app.directives.msgTextarea', []).
   directive('msgTextarea', function($timeout) {
     return {
       restrict: 'EA',

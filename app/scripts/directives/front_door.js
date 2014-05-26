@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('bonfireApp.directives.frontDoor', []).
+angular.module('app.directives.frontDoor', []).
   directive('frontDoor', function() {
     return {
       restrict: 'A',

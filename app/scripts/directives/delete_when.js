@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('bonfireApp.directives.deleteWhen', []).
+angular.module('app.directives.deleteWhen', []).
   directive('deleteWhen', function() {
     return {
       restrict: 'A',

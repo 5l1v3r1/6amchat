@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('bonfireApp.directives.onblur', []).
+angular.module('app.directives.onblur', []).
   directive('onblur', function($window) {
     return {
       restrict: 'A',
@@ -12,7 +12,7 @@ angular.module('bonfireApp.directives.onblur', []).
     }
   });
 
-angular.module('bonfireApp.directives.onfocus', []).
+angular.module('app.directives.onfocus', []).
   directive('onfocus', function($window) {
     return {
       restrict: 'A',
@@ -24,7 +24,7 @@ angular.module('bonfireApp.directives.onfocus', []).
     }
   });
 
-angular.module('bonfireApp.directives.onload', []).
+angular.module('app.directives.onload', []).
   directive('onload', function($window) {
     return {
       restrict: 'A',
@@ -34,7 +34,7 @@ angular.module('bonfireApp.directives.onload', []).
     }
   });
 
-angular.module('bonfireApp.directives.onbeforeunload', []).
+angular.module('app.directives.onbeforeunload', []).
   directive('onbeforeunload', function($window) {
     return {
       restrict: 'A',

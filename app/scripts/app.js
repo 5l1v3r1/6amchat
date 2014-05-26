@@ -1,22 +1,22 @@
 'use strict';
 
-var app = angular.module('bonfireApp', [ 'bonfireApp.services',
-                                         'bonfireApp.directives',
-                                         'ngAnimate',
-                                         'config',
-                                         'ngSanitize' ]);
+var app = angular.module('app', [ 'app.services',
+                                  'app.directives',
+                                  'ngAnimate',
+                                  'config',
+                                  'ngSanitize' ]);
 
-angular.module('bonfireApp.services', [ 'bonfireApp.services.vline',
-                                        'bonfireApp.services.videoChat',
-                                        'bonfireApp.services.chatQueue',
-                                        'bonfireApp.services.auth' ]);
+angular.module('app.services', [ 'app.services.vline',
+                                 'app.services.videoChat',
+                                 'app.services.chatQueue',
+                                 'app.services.auth' ]);
 
-angular.module('bonfireApp.directives', [ 'bonfireApp.directives.videoStream',
-                                          'bonfireApp.directives.scrollToBottomWhenChanged',
-                                          'bonfireApp.directives.onblur',
-                                          'bonfireApp.directives.onfocus',
-                                          'bonfireApp.directives.onload',
-                                          'bonfireApp.directives.onbeforeunload',
-                                          'bonfireApp.directives.frontDoor',
-                                          'bonfireApp.directives.deleteWhen',
-                                          'bonfireApp.directives.msgTextarea' ]);
+angular.module('app.directives', [ 'app.directives.videoStream',
+                                   'app.directives.scrollToBottomWhenChanged',
+                                   'app.directives.onblur',
+                                   'app.directives.onfocus',
+                                   'app.directives.onload',
+                                   'app.directives.onbeforeunload',
+                                   'app.directives.frontDoor',
+                                   'app.directives.deleteWhen',
+                                   'app.directives.msgTextarea' ]);

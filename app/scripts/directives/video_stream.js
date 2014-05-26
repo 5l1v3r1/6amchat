@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('bonfireApp.directives.videoStream', []).
+angular.module('app.directives.videoStream', []).
   directive('videoStream', function() {
     return {
       restrict: 'EA',
