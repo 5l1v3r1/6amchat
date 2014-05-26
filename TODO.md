@@ -33,7 +33,9 @@
 * [x] iterate bios on twitter/fb pages
 * [x] get rid of bonfire names, fb names, etc.
 * [x] fix up analytics
-* [ ] double check in firefox
+* [ ] fix glitches in firefox
+* [ ] check if webrtc is supported, if not, communicate to user to update or use chrome/firefox
+* [ ] if mobile, allow user to give email to render themselves to check it out later
 
 * [ ] add open graph tags
 * [ ] add twitter tags
