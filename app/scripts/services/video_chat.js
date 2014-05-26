@@ -97,10 +97,14 @@ angular.module('app.services.videoChat', [])
         }
 
         function onEnterClosed() {
+          var waitTime = parseInt((_waitEnd - _waitStart) / 1000),
+              chatTime = parseInt((Date.now() - _waitEnd) / 1000);
+
           mixpanel.track('Finished Chat', {
             "num_of_msgs": videoChat.msgs.length,
-            "wait_time_in_secs": parseInt((_waitEnd - _waitStart) / 1000),
-            "chat_time_in_secs": parseInt((Date.now() - _waitEnd) / 1000)
+            "wait_time_in_secs": waitTime,
+            "chat_time_in_secs": chatTime,
+            "chat_vs_wait": chatTime / waitTime
           });
 
           videoChat.msgPlaceholder  = "";

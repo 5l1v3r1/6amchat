@@ -32,7 +32,7 @@
 * [x] fix fb modal cut off
 * [x] iterate bios on twitter/fb pages
 * [x] get rid of bonfire names, fb names, etc.
-* [ ] fix up analytics
+* [x] fix up analytics
 * [ ] double check in firefox
 
 * [ ] add open graph tags
