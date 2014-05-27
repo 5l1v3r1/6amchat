@@ -24,7 +24,7 @@ html.no-js
       mixpanel.init("fdd9678e32a0df3a9dee8f5c67e45091");
       mixpanel.track('Loaded Page');
     //- build:head
-  body(ng-app="app")
+  body
     //[if lt IE 7]>
       <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
       <![endif]
@@ -33,7 +33,20 @@ html.no-js
       <script src="bower_components/json3/lib/json3.min.js"></script>
       <![endif]
 
-    a(href="google.com") Google
+    main
+      .slide#slide-1
+        #slide-1-logo 6AM CHAT
+        p is a way to meet and have conversations with people from all around the world on your laptop or desktop computer.
+        a.go-to-slide-2(href="#") Tell Me More
+      .slide#slide-2.js-hide
+        p If you were on a laptop or desktop computer and you turned on your webcam and mic, you'd be connected with someone. And whenever you wanted to meet someone new you could click "Next".
+        a.go-to-slide-3(href="#") Sounds Interesting!
+        br
+        br
+        a.go-to-slide-1(href="#") Go Back
+      .slide#slide-3.js-hide
+        p We can email you a reminder to check this website out on your laptop or desktop computer if you want! Don't worry, we don't save your email address, all we do is just send one email.
+        a.go-to-slide-2(href="#") Go Back
 
     script(src="bower_components/jquery/jquery.js")
 
