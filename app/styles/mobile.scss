@@ -35,6 +35,8 @@ main {
   font-weight: 500;
   line-height: 23px;
   -webkit-font-smoothing: antialiased;
+  margin-bottom: 19px;
+  text-shadow: 1px 1px 15px rgba(34, 34, 34, .5);
   &:first-child {
     margin-top: 0;
   }
@@ -59,17 +61,17 @@ main {
 
 #slide-1-logo {
   width: intrinsic;
-  padding: 10px 14px;
+  padding: 12px 14px;
   background-color: $dark-color;
   font-family: "europa";
   color: white;
-  font-size: 26px;
+  font-size: 25px;
   letter-spacing: 3px;
   text-align: center;
 }
 
 form {
-  margin-bottom: 16px;
+  margin-bottom: 30px;
   margin-top: 28px;
 }
 
@@ -82,7 +84,7 @@ input {
   height: 100%;
   font-size: 14px;
   width: 100%;
-  height: 40px;
+  height: 44px;
   text-align: center;
   &:focus {
     outline: none;
@@ -99,7 +101,7 @@ button {
   -webkit-font-smoothing: antialiased;
   margin: 0;
   vertical-align: top;
-  height: 40px;
+  height: 44px;
   width: 100%;
   &:focus {
     outline: none;

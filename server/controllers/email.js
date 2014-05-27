@@ -10,7 +10,7 @@ module.exports = function(config) {
       subject: 'Reminder to Self: Check out 6amchat.com',
       from: 'matt@6amchat.com',
       fromname: '6AM Chat',
-      html: "<a href='6amchat.com'>6amchat.com</a>",
+      html: "<a href='6amchat.com'>6amchat.com</a> Hope you have fun with it!<br><br>Matt",
       date: new Date(),
       to: req.body.email
     };
