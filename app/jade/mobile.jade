@@ -46,6 +46,9 @@ html.no-js
         a.go-to-slide-1(href="#") Go Back
       .slide#slide-3.js-hide
         p We can email you a reminder to check this website out on your laptop or desktop computer if you want! Don't worry, we don't save your email address, all we do is just send one email.
+        form(method="post", action="emails/reminder")
+          input(type="email", name="email", placeholder="Email Address")
+          button(type="submit") Send Reminder
         a.go-to-slide-2(href="#") Go Back
 
     script(src="bower_components/jquery/jquery.js")

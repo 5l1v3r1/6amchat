@@ -6,7 +6,7 @@ require('newrelic');
 var express = require('express');
 require("termcolor").define(); // for console.logging w/ colors
 
-var env = process.env.NODE_ENV || 'dev',
+var env    = process.env.NODE_ENV || 'dev',
     config = require('./config')[env];
 
 var app = express();
