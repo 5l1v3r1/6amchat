@@ -197,23 +197,6 @@ video {
 //   transform: translateY(-100%);
 // }
 
-#social-media-icons {
-  margin: 0 20px;
-  font-size: 53px;
-  width: 100%;
-  text-align: center;
-  margin-top: -3px;
-}
-
-#social-media-icons .icon {
-  width: 33%;
-  display: inline-block;
-  margin-top: -5px;
-  a {
-    color: white;
-  }
-}
-
 #btns {
   padding-top: 24px;
   height: 150px;
@@ -316,7 +299,6 @@ video {
     font-size: 25px;
     line-height: 35px;
     margin-bottom: 0;
-    font-weight: 500;
     position: relative;
     z-index: 2;
     font-weight: 400;
