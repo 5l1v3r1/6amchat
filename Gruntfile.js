@@ -149,7 +149,8 @@ module.exports = function (grunt) {
           removeOptionalTags: true*/
         },
         files: {
-          '<%= yeoman.dist %>/public/index.html': ['.tmp/index.html', '.tmp/mobile.html']
+          '<%= yeoman.dist %>/public/index.html': ['.tmp/index.html'],
+          '<%= yeoman.dist %>/public/mobile.html': ['.tmp/mobile.html']
         }
       }
     },
