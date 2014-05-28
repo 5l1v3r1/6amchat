@@ -13,4 +13,9 @@ $(function() {
     $('.slide').addClass('js-hide');
     $('#slide-3').removeClass('js-hide');
   });
+
+  $('.go-to-slide-4').click(function() {
+    $('.slide').addClass('js-hide');
+    $('#slide-4').removeClass('js-hide');
+  });
 });
