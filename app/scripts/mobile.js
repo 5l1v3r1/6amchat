@@ -18,4 +18,26 @@ $(function() {
     $('.slide').addClass('js-hide');
     $('#slide-4').removeClass('js-hide');
   });
+
+  $('#send-reminder').submit(function(e) {
+    e.preventDefault();
+
+    var self      = $(this),
+        submitBtn = self.find("button[type='submit']");
+
+    submitBtn.text('Sending Reminder...');
+
+    $.ajax({
+      url: "/emails/reminder",
+      type: "POST",
+      cache: false,
+      data: self.serialize()
+    }).done(function() {
+      submitBtn.text('Reminder Sent!')
+               .attr('disabled', 'disabled')
+               .css('cursor', 'default');
+    }).fail(function() {
+      submitBtn.text('Hm, there was a problem. Try again.');
+    });
+  });
 });

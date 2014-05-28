@@ -52,7 +52,7 @@ html.no-js
         a.go-to-slide-2(href="#") Go back
       .slide#slide-4.js-hide
         p We can email you a reminder to check this website out on your laptop or desktop computer if you want! Don't worry, we don't save your email address, all we do is just send one email.
-        form(method="post", action="emails/reminder")
+        form(method="post", action="emails/reminder", id="send-reminder")
           input(type="email", name="email", placeholder="Email Address")
           button(type="submit") Send Reminder
         a.go-to-slide-3(href="#") Go back
