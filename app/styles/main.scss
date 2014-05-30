@@ -108,12 +108,14 @@ button {
   overflow: hidden;
   border: 3px $dark-color solid;
   background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 video {
-  object-fit: cover;
-  height: 100%;
-  width: 100%
+  width: 100%;
+  height: auto;
 }
 
 .remote-stream {
@@ -423,9 +425,10 @@ video {
   padding: 14px 20px;
   font-size: 14px;
   border: none;
-  font: -webkit-control;
+  font-family: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
   min-height: 0;
   line-height: 21px;
+  font: -webkit-control;
 }
 
 #msgs .msg:last-child {
@@ -450,7 +453,7 @@ video {
 .msg .msg-payload {
   background-color: #ecebee;
   padding: 4px 10px;
-  width: intrinsic;
+  width: max-content;
   border-radius: 6px;
   position: relative;
   user-select: text;
@@ -486,9 +489,7 @@ video {
 }
 
 .spinner {
-  margin: 165px auto 0;
-  width: 116px;
-  text-align: center;
+  margin-top: -20px;
 }
 
 .spinner > div {

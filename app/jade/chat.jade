@@ -39,14 +39,14 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
       #landing-page(ng-if="!videoChat.isAvailable")
         #gradient
         #gradient-shadows
-        h1 Chat with a random person from around the world into the wee hours of the morning.
+        h1 Chat with a random<br>person from around the<br>world into the wee hours<br>of the morning.
         h2 Turn on your webcam<br><span>{{ (auth.isLoggingIn || auth.isLoggedIn) ? "by" : "and" }}</span>
           #login-container(ng-click="auth.login()")
             #login
               .login-side
-                {{ (auth.isLoggingIn || auth.isLoggedIn) ? "clicking Allow..." : "meet new people!" }}
+                {{ (auth.isLoggingIn || auth.isLoggedIn) ? loggingInMsg : "meet new people!" }}
               .login-side
-                {{ (auth.isLoggingIn || auth.isLoggedIn) ? "clicking Allow..." : "meet new people!" }}
+                {{ (auth.isLoggingIn || auth.isLoggedIn) ? loggingInMsg : "meet new people!" }}
 
       #msgs(scroll-to-bottom-when-changed="videoChat.msgs", ng-show="videoChat.isAvailable")
         .msg(ng-repeat="msg in videoChat.msgs", ng-class="{self: msg.sentBySelf}")

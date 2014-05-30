@@ -33,9 +33,14 @@
 * [x] iterate bios on twitter/fb pages
 * [x] get rid of bonfire names, fb names, etc.
 * [x] fix up analytics
-* [ ] fix glitches in firefox
-* [ ] check if webrtc is supported, if not, communicate to user to update or use chrome/firefox
-* [ ] if mobile, allow user to give email to render themselves to check it out later
+* [x] if mobile, allow user to give email to render themselves to check it out later
+* [x] fix glitches in firefox
+  * [x] width of msg too wide
+  * [x] video stream to fit in better
+  * [x] if firefox show diff msg than "click Allow..."
+  * [x] change font of textarea
+* [ ] fix how super long msgs don't wrap
+* [ ] check if webrtc is supported, if not, communicate to user to update or use chrome/firefox/opera
 
 * [ ] add open graph tags
 * [ ] add twitter tags

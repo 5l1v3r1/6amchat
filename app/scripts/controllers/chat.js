@@ -8,6 +8,11 @@ angular.module('app')
     $scope.videoChat      = videoChat;
     $scope.auth           = auth;
     $scope.onbeforeunload = auth.logoutPermanently;
+    $scope.loggingInMsg   = typeof InstallTrigger !== 'undefined' ? (
+                              'clicking Share...'
+                            ) : (
+                              'clicking Allow...'
+                            )
 
     $scope.onblur = function() {
       videoChat.startCountingMsgs();
