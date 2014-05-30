@@ -39,7 +39,7 @@
   * [x] video stream to fit in better
   * [x] if firefox show diff msg than "click Allow..."
   * [x] change font of textarea
-* [ ] fix how super long msgs don't wrap
+* [x] fix how super long msgs don't wrap
 * [ ] check if webrtc is supported, if not, communicate to user to update or use chrome/firefox/opera
 
 * [ ] add open graph tags

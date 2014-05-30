@@ -441,7 +441,6 @@ video {
   padding-bottom: 4.5px;
   padding-right: 100px;
   line-height: 19px;
-  width: 100%;
   &.self {
     text-align: right;
     padding-left: 100px;
@@ -453,10 +452,12 @@ video {
 .msg .msg-payload {
   background-color: #ecebee;
   padding: 4px 10px;
-  width: max-content;
   border-radius: 6px;
   position: relative;
   user-select: text;
+  word-wrap: break-word;
+  width: max-content;
+  max-width: 100%;
   &:after {
     content: '';
     position: absolute;
