@@ -40,7 +40,8 @@
   * [x] if firefox show diff msg than "click Allow..."
   * [x] change font of textarea
 * [x] fix how super long msgs don't wrap
-* [ ] check if webrtc is supported, if not, communicate to user to update or use chrome/firefox/opera
+* [x] check if webrtc is supported, if not, communicate to user to update or use chrome/firefox/opera
+* [ ] cancel UI msgs on state change
 
 * [ ] add open graph tags
 * [ ] add twitter tags
@@ -132,7 +133,7 @@
 * [ ] figure out how i can make it so that you can't just give any userId into the queue and spam the queue with bad ids
   - if calls aren't picked up then you're banned
 
-* [ ] for mobile users, don't give app, instead show landing page describing it, and have field w/ below it "Let us send you an email to remind you to check out this app when you get on your computer. Then we'll have your email address and we'll spam you a million thousand times! #geniusplan Okay so we won't spam you, in fact, we won't even subscribe you to anything (in fact, we don't even have anything to subscribe you to)." Then on form submission redirect to tumblr blog w/ best chats.
+* [x] for mobile users, don't give app, instead show landing page describing it, and have field w/ below it "Let us send you an email to remind you to check out this app when you get on your computer. Then we'll have your email address and we'll spam you a million thousand times! #geniusplan Okay so we won't spam you, in fact, we won't even subscribe you to anything (in fact, we don't even have anything to subscribe you to)." Then on form submission redirect to tumblr blog w/ best chats.
 
 * [ ] have "subreddits" -> can create a new room, can join a room, and mods can ban users from a room
 

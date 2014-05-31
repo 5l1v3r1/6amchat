@@ -14,17 +14,22 @@ angular.module('app.services.auth', [])
     }
 
     auth.login = function() {
-      mixpanel.track('Clicked Sign In');
-      auth.isLoggingIn = true;
-      $http.post('/login').success(function(data) {
-        // connect bug: console.log('Calling videoChat#login in logged_into_fb callback');
-        videoChat.login(data.authToken).then(
-          function() {
-            auth.isLoggingIn = false;
-            auth.isLoggedIn  = true;
-          }, _errorCb
-        );
-      }).error(_errorCb);
+      if (!vline.Browser.supportsWebRtc() || !vline.Browser.supportsChat()) {
+        videoChat.isSupported = false;
+        mixpanel.track('Could Not Sign In: Brower not Supported');
+      } else {
+        mixpanel.track('Signed In');
+        auth.isLoggingIn = true;
+        $http.post('/login').success(function(data) {
+          // connect bug: console.log('Calling videoChat#login in logged_into_fb callback');
+          videoChat.login(data.authToken).then(
+            function() {
+              auth.isLoggingIn = false;
+              auth.isLoggedIn  = true;
+            }, _errorCb
+          );
+        }).error(_errorCb);
+      }
     }.bind(auth);
 
     auth.logout = function() {

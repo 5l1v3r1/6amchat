@@ -20,7 +20,7 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
         #btns
           #stop-n-go-btns-wrapper
             #stop-n-go-btns(ng-class="{showStop: videoChat.isAvailable}")
-              button#start-btn(ng-click="auth.login()") Start
+              button#start-btn(ng-click="auth.login()", ng-disabled="!videoChat.isSupported") Start
               button(ng-click="auth.logout()") Stop
 
           #next-btn
@@ -36,17 +36,37 @@ main(ng-controller="ChatCtrl", onbeforeunload="onbeforeunload", onblur="onblur",
 
   #chat.container.large-12.medium-12.small-12.right
     #chat-border
-      #landing-page(ng-if="!videoChat.isAvailable")
+      #on-ramp(ng-if="!videoChat.isAvailable", ng-switch="videoChat.isSupported")
         #gradient
         #gradient-shadows
-        h1 Chat with a random<br>person from around the<br>world into the wee hours<br>of the morning.
-        h2 Turn on your webcam<br><span>{{ (auth.isLoggingIn || auth.isLoggedIn) ? "by" : "and" }}</span>
-          #login-container(ng-click="auth.login()")
-            #login
-              .login-side
-                {{ (auth.isLoggingIn || auth.isLoggedIn) ? loggingInMsg : "meet new people!" }}
-              .login-side
-                {{ (auth.isLoggingIn || auth.isLoggedIn) ? loggingInMsg : "meet new people!" }}
+        #landing-page(ng-switch-when="true")
+          h1 Chat with a random<br>person from around the<br>world into the wee hours<br>of the morning.
+          h2 Turn on your webcam<br><span>{{ (auth.isLoggingIn || auth.isLoggedIn) ? "by" : "and" }}</span>
+            .slide-btn-container(ng-click="auth.login()")
+              .slide-btn
+                .slide-btn-side
+                  {{ (auth.isLoggingIn || auth.isLoggedIn) ? loggingInMsg : "meet new people!" }}
+                .slide-btn-side
+                  {{ (auth.isLoggingIn || auth.isLoggedIn) ? loggingInMsg : "meet new people!" }}
+        #browser-issue(ng-switch-when="false")
+          h1 Oh no! It looks like your browser isn't supported.
+          h2 The technology we use for you to be able to use your webcam is very new. Unfortunately this means your browser has to be one of these.
+          .browser
+            a(href="https://www.google.com/intl/en/chrome/browser/", target="_blank")
+              img(src="images/browser_icons/chrome_512x512.png")
+            span 31.0+
+          .browser
+            a(href="https://www.mozilla.org/en-US/firefox/new/", target="_blank")
+              img(src="images/browser_icons/firefox_512x512.png")
+            span 28.0+
+          .browser
+            a(href="http://www.opera.com/", target="_blank")
+              img(src="images/browser_icons/opera_512x512.png")
+            span 21.0+
+          a.slide-btn-container(href="https://www.google.com/intl/en/chrome/browser/", target="_blank")
+            .slide-btn
+              .slide-btn-side Upgrade Your Browser Now
+              .slide-btn-side Upgrade Your Browser Now
 
       #msgs(scroll-to-bottom-when-changed="videoChat.msgs", ng-show="videoChat.isAvailable")
         .msg(ng-repeat="msg in videoChat.msgs", ng-class="{self: msg.sentBySelf}")

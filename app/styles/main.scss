@@ -278,7 +278,7 @@ video {
   padding-left: 12px;
 }
 
-#landing-page {
+#on-ramp {
   padding: 24px 30px;
   height: 100%;
   width: 100%;
@@ -295,20 +295,21 @@ video {
     z-index: 2;
     font-weight: 500;
     margin-right: 72px;
+    -webkit-font-smoothing: antialiased; // prevent glitch in safari where w/o this text would flicker
   }
   h2 {
-    margin-top: 88px;
     font-size: 25px;
     line-height: 35px;
     margin-bottom: 0;
     position: relative;
     z-index: 2;
     font-weight: 400;
+    -webkit-font-smoothing: antialiased; // prevent glitch in safari where w/o this text would flicker
     span {
       vertical-align: text-top;
     }
   }
-  #login-container {
+  .slide-btn-container {
     user-select: none;
     margin-top: 6px;
     margin-left: 4px;
@@ -319,21 +320,20 @@ video {
     color: white;
     padding: 5px 19px 0 14px;
     cursor: pointer;
-    transition: .4s ease;
     font-weight: 500;
-    display: inline-block;
-    width: 207px;
     position: relative;
-    #login {
+    display: inline-block;
+    line-height: 35px;
+    .slide-btn {
       transition: .4s ease;
     }
     &:hover {
       background-color: #4868af;
-      #login {
+      .slide-btn {
         transform: translateY(-50%);
       }
     }
-    .login-side {
+    .slide-btn-side {
       height: 48px;
       font-size: 21px;
       -webkit-font-smoothing: antialiased;
@@ -341,18 +341,58 @@ video {
   }
 }
 
-#landing-page.ng-enter, #landing-page.ng-leave {
+#landing-page {
+  h2 {
+    margin-top: 88px;
+  }
+  .slide-btn-container {
+    width: 207px;
+  }
+}
+
+#on-ramp.ng-enter, #on-ramp.ng-leave {
   transition: 0.5s linear;
 }
 
-#landing-page.ng-enter,
-#landing-page.ng-leave.ng-leave-active {
+#on-ramp.ng-enter,
+#on-ramp.ng-leave.ng-leave-active {
   opacity: 0;
 }
 
-#landing-page.ng-leave,
-#landing-page.ng-enter.ng-enter-active {
+#on-ramp.ng-leave,
+#on-ramp.ng-enter.ng-enter-active {
   opacity: 1;
+}
+
+#browser-issue {
+  h2 {
+    margin-top: 50px;
+  }
+  .slide-btn-container {
+    width: 303px;
+    clear: both;
+  }
+  .browser {
+    position: relative;
+    z-index: 10;
+    width: 70px;
+    margin-top: 15px;
+    margin-bottom: 65px;
+    display: inline-block;
+    text-align: center;
+    a, img {
+      display: inline-block;
+      width: 100%;
+    }
+    span {
+      display: inline-block;
+      margin-top: 8px;
+      font-weight: 500;
+    }
+    & + .browser {
+      margin-left: 25px;
+    }
+  }
 }
 
 #chat-border {
@@ -578,6 +618,7 @@ footer {
   color: #999;
   font-size: 14px;
   padding: 0 48px;
+  -webkit-font-smoothing: subpixel-antialiased; // prevent glitch in safari where w/o this text would flicker
   a {
     color: #999;
     &:visited {

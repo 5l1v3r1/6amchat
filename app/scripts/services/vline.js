@@ -7,8 +7,7 @@ angular.module('app.services.vline', [])
         // can't call var vline because that's already taken from vendor/vline.js
         var vlineService = {};
 
-        vlineService.session = null;
-        vlineService.userId  = null;
+        vlineService.session = null, vlineService.userId  = null;
 
         vlineService.client = vline.Client.create(options);
 

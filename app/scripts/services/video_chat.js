@@ -7,7 +7,7 @@ angular.module('app.services.videoChat', [])
       var _waitStart = null, _waitEnd = null;
 
       var videoChat = {};
-      videoChat.isChatting = false, videoChat.isAvailable = false;
+      videoChat.isChatting = false, videoChat.isAvailable = false, videoChat.isSupported = true;
       videoChat.streams = {
         local: null,
         remote: null
@@ -188,8 +188,6 @@ angular.module('app.services.videoChat', [])
       videoChat.logoutClient = vline.logout;
 
       videoChat.callFirstPartner = function() {
-        mixpanel.track('Clicked Start');
-
         vline.client.getLocalStream().
           done(function(e) {
             this.streams.local = e;
