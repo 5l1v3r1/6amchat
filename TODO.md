@@ -41,7 +41,7 @@
   * [x] change font of textarea
 * [x] fix how super long msgs don't wrap
 * [x] check if webrtc is supported, if not, communicate to user to update or use chrome/firefox/opera
-* [ ] cancel UI msgs on state change
+* [x] cancel UI msgs on state change
 
 * [ ] add open graph tags
 * [ ] add twitter tags

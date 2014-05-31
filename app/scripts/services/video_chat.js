@@ -4,7 +4,7 @@ angular.module('app.services.videoChat', [])
   .factory('videoChat', function($rootScope, vline, chatQueue, $timeout, $sce) {
 
       var _channel = null, _calls = [];
-      var _waitStart = null, _waitEnd = null;
+      var _waitStart = null, _waitEnd = null, _logoutCount = 0;
 
       var videoChat = {};
       videoChat.isChatting = false, videoChat.isAvailable = false, videoChat.isSupported = true;
@@ -20,8 +20,10 @@ angular.module('app.services.videoChat', [])
       function _callNewPartner() {
         _waitStart = Date.now();
 
+        var _prevLogoutCount = _logoutCount;
+
         $timeout(function() {
-          if (chatQueue.isWaiting) {
+          if (chatQueue.isWaiting && _logoutCount === _prevLogoutCount) {
             videoChat.msgs.push({
               payload: "Trying to find someone for you...",
               sentBySelf: false,
@@ -32,7 +34,7 @@ angular.module('app.services.videoChat', [])
         }, 1500);
 
         $timeout(function() {
-          if (chatQueue.isWaiting) {
+          if (chatQueue.isWaiting && _logoutCount === _prevLogoutCount) {
             videoChat.msgs.push({
               payload: $sce.trustAsHtml("If waiting's not your thing, feel free to share about " +
                                         "us so more people get online!" +
@@ -175,6 +177,7 @@ angular.module('app.services.videoChat', [])
 
       videoChat.logout = function() {
         this.stopChatting();
+        _logoutCount += 1;
 
         var localMediaStream = this.streams.local;
         if (localMediaStream) {
