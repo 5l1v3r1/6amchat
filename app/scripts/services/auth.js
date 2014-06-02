@@ -18,12 +18,12 @@ angular.module('app.services.auth', [])
         videoChat.isSupported = false;
         mixpanel.track('Could Not Sign In: Brower not Supported');
       } else {
-        mixpanel.track('Signed In');
         auth.isLoggingIn = true;
         $http.post('/login').success(function(data) {
-          // connect bug: console.log('Calling videoChat#login in logged_into_fb callback');
+          mixpanel.track('Signed In');
           videoChat.login(data.authToken).then(
             function() {
+              mixpanel.track('Turned on Cam and Mic');
               auth.isLoggingIn = false;
               auth.isLoggedIn  = true;
             }, _errorCb
