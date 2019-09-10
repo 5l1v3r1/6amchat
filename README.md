@@ -1,5 +1,1 @@
-Come join me and meet people
-
-# Dev
-
-open_zmepoob_user@tfbnw.net
+A clone of ChatRoulette built using NodeJS, AngularJS, and WebRTC. 
